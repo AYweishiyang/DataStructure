@@ -62,6 +62,8 @@ class CircleSingleLinkedList{
             first = first.getNext();
             helper = helper.getNext();
         }
+
+
         while(true){
 
             if(first == helper){
