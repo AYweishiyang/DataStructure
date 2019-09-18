@@ -103,7 +103,7 @@ class CircleQueue{
         }
     }
     public int size() {
-        return (rear + maxSize - front)%maxSize;
+        return (rear - front + maxSize )%maxSize;
     }
     //显示队列头
     public int headQueue() {
