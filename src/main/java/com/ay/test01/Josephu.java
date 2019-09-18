@@ -62,16 +62,23 @@ class CircleSingleLinkedList{
             first = first.getNext();
             helper = helper.getNext();
         }
-        for (int i = 0; i < countNum -1 ; i++) {
-            first = first.getNext();
-            helper = helper.getNext();
+        while(true){
+
+            if(first == helper){
+                break;
+            }
+            for (int i = 0; i < countNum -1 ; i++) {
+                first = first.getNext();
+                helper = helper.getNext();
+
+            }
             System.out.println(first.getNo() + "--");
             first = first.getNext();
             helper.setNext(first);
-            if(first == helper){
-                System.out.println(first.getNo() + "--");
-            }
         }
+        System.out.println(first.getNo() + "--");
+
+
 
     }
 }
