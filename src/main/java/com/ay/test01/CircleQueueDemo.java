@@ -98,7 +98,7 @@ class CircleQueue{
             System.out.println("队列为空");
             return;
         }
-        for (int i = front; i < size(); i++) {
+        for (int i = front; i < front+size(); i++) {
             System.out.printf("arr[%d]=%d\n",i%maxSize,arr[i%maxSize]);
         }
     }
