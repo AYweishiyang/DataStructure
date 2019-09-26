@@ -12,7 +12,6 @@ public class ArrayStackDemo {
         arrayStack.push(3);
         arrayStack.push(4);
         arrayStack.show();
-
     }
 }
 
