@@ -60,6 +60,7 @@ class ArrayStack {
         }
     }
 }
+//链表头部进出栈
 class LinkedStack{
 
 }
