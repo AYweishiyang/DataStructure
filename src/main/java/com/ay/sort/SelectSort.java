@@ -8,9 +8,31 @@ import java.util.Arrays;
  */
 public class SelectSort {
     public static void main(String[] args) {
-        int[] arr = new int[]{6,5,4,3,2,1};
+        int[] arr = new int[80000];
+        for (int i = 0; i < 80000; i++) {
+            arr[i] = (int)(Math.random() * 8000000);
+        }
+        long startTime = System.currentTimeMillis();
         selectSort(arr);
-        System.out.println(Arrays.toString(arr));
+        long endTime = System.currentTimeMillis();
+        System.out.println((endTime-startTime)/1000.0 + " s");
+
+    }
+
+    public static void selectSort1(int[] arr){
+        for (int i = 0; i < arr.length -1; i++) {
+            int min = arr[i];
+            int minIndex = i;
+            for (int j = i + 1; j < arr.length; j++) {
+                if(min>arr[j]){
+                    min = arr[j];
+                    minIndex = j;
+                }
+            }
+            arr[minIndex] = arr[i];
+            arr[i]  = min;
+        }
+
     }
 
     public static void selectSort(int[] arr) {
@@ -29,8 +51,6 @@ public class SelectSort {
                 arr[i] = min;
 
             }
-            System.out.println("第"+(i+1) + "次" + Arrays.toString(arr));
-
 
 
         }

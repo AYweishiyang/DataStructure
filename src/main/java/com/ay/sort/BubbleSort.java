@@ -21,6 +21,29 @@ public class BubbleSort {
 //        System.out.println(Arrays.toString(arr));
 
     }
+
+    public static void bubbleSort1(int[] arr){
+        for (int i = 0; i < arr.length - 1; i++) {
+            boolean flag = false;
+            for (int j = 0; j < arr.length - i - 1; j++) {
+                int temp = 0;
+                if(arr[j]>arr[j+1]){
+                    flag = true;
+                    temp = arr[j];
+                    arr[j]=arr[j+1];
+                    arr[j+1] = temp;
+                }
+
+            }
+            if(!flag){
+                break;
+            }else {
+                flag = false;
+            }
+        }
+    }
+
+
     public static void bubbleSort(int[] arr){
         int temp = 0;
         boolean flag = false;
@@ -40,5 +63,19 @@ public class BubbleSort {
                 flag = false;
             }
         }
+    }
+}
+class LinkNode{
+    int val;
+    LinkNode head;
+    LinkNode next;
+    public LinkNode(){
+
+    }
+
+}
+class LinkList{
+    public static void add(LinkNode node){
+
     }
 }
