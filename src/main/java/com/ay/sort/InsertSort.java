@@ -13,7 +13,7 @@ public class InsertSort {
             arr[i] = (int)(Math.random() * 80000000);
         }
         long startTime = System.currentTimeMillis();
-        insertSort1(arr);
+        insertSort2(arr);
         long endTime = System.currentTimeMillis();
         System.out.println((endTime-startTime)/1000.0 + " s");
     }
@@ -51,5 +51,19 @@ public class InsertSort {
 
         }
 
+    }
+    public static void insertSort2(int[] arr){
+        for (int i = 1; i < arr.length; i++) {
+            int insertIndex = i-1;
+            int insertValue = arr[i];
+            while (insertIndex >= 0 && insertValue < arr[insertIndex]){
+                arr[insertIndex+1] = arr[insertIndex];
+                insertIndex--;
+            }
+            if(insertIndex != i-1){
+                arr[insertIndex+1] = insertValue;
+            }
+
+        }
     }
 }

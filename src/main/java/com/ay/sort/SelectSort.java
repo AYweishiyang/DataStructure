@@ -51,8 +51,6 @@ public class SelectSort {
                 arr[i] = min;
 
             }
-
-
         }
     }
 }
