@@ -24,22 +24,20 @@ public class BubbleSort {
         bubbleSort(arr);
         long endTime = System.currentTimeMillis();
         System.out.println((endTime-startTime)/1000.0 + " s");
-//        System.out.println(Arrays.toString(arr));
 
     }
 
     public static void bubbleSort1(int[] arr){
-        for (int i = 0; i < arr.length - 1; i++) {
-            boolean flag = false;
+        for (int i = 0; i < arr.length - 1; i++) {//次数为数组长度减1
+            boolean flag = false;//标志此次循环是否进行过交换
             for (int j = 0; j < arr.length - i - 1; j++) {
                 int temp = 0;
                 if(arr[j]>arr[j+1]){
                     flag = true;
-                    temp = arr[j];
+                    temp = arr[j];//交换两个数
                     arr[j]=arr[j+1];
                     arr[j+1] = temp;
                 }
-
             }
             if(!flag){
                 break;
@@ -48,7 +46,6 @@ public class BubbleSort {
             }
         }
     }
-
 
     public static void bubbleSort(int[] arr){
         int temp = 0;
@@ -62,7 +59,6 @@ public class BubbleSort {
                     arr[j+1] = temp;
                 }
             }
-
             if(!flag){
                 break;
             }else {

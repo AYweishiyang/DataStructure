@@ -21,11 +21,12 @@ public class InsertSort {
     public static void insertSort(int[] arr) {
         int insertVal;
         int insertIndex;
+        // 从下标为1的元素开始选择合适的位置插入，因为下标为0的只有一个元素，默认是有序的
         for (int i = 1; i < arr.length; i++) {
-            insertVal = arr[i];
-            insertIndex = i - 1;
+            insertVal = arr[i];//待插入的数
+            insertIndex = i - 1;//要插入的索引
             while (insertIndex >= 0 && insertVal < arr[insertIndex]) {
-                arr[insertIndex + 1] = arr[insertIndex];
+                arr[insertIndex + 1] = arr[insertIndex];//后移一位
                 insertIndex--;
             }
             if(insertIndex + 1 !=i){
