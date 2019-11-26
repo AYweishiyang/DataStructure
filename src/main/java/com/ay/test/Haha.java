@@ -20,11 +20,15 @@ public class Haha {
 
         Student aa = new Student("aa", 11);
         if (aa != null) {
-
         }
         for (int i = 0; i < 100; i++) {
             System.out.println(new Date());
             try {
+
+                Thread.sleep(1000);
+                Thread.sleep(1000);
+                Thread.sleep(1000);
+                Thread.sleep(1000);
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 String haha = "DDD";
