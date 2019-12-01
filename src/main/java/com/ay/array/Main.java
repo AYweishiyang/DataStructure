@@ -6,13 +6,11 @@ package com.ay.array;
  */
 public class Main {
     public static void main(String[] args) {
-        ArrayStack<Integer> stack = new ArrayStack<>();
+        LoopQueue<Integer> queue = new LoopQueue<>();
         for (int i = 0; i < 5; i++) {
-            stack.push(i);
-            System.out.println(stack);
+            queue.enqueue(i);
+            System.out.println(queue);
         }
-        stack.pop();
-        System.out.println(stack);
 
     }
 }
