@@ -1,12 +1,6 @@
 package com.ay.array;
 
 
-
-
-import java.util.Objects;
-
-import static com.sun.webkit.PageCache.getCapacity;
-
 /**
  * @author ay
  * @create 2019-12-01 22:37
@@ -25,7 +19,7 @@ public class LoopQueue<E> implements Queue<E>{
     public LoopQueue(){
         this(10);
     }
-    public int getcapacity(){
+    public int getCapacity(){
         return data.length-1;
     }
     @Override
@@ -60,7 +54,7 @@ public class LoopQueue<E> implements Queue<E>{
         size ++;
     }
     private void resize(int capacity) {
-        E[] newData = (E[])new Objects[capacity+1];
+        E[] newData = (E[])new Object[capacity+1];
         for (int i = 0; i < size; i++) {
             newData[i] = data[(front + i) % data.length];
         }
@@ -78,8 +72,8 @@ public class LoopQueue<E> implements Queue<E>{
         data[front] = null;
         front = (front+1)%data.length;
         size --;
-        if(size == getcapacity()/4 && getcapacity()/2!=0){
-            resize(getcapacity()/2);
+        if(size == getCapacity()/4 && getCapacity()/2!=0){
+            resize(getCapacity()/2);
         }
 
         return ret;
@@ -95,7 +89,7 @@ public class LoopQueue<E> implements Queue<E>{
     @Override
     public String toString() {
         StringBuilder res = new StringBuilder();
-        res.append(String.format("Array:size = %d , capacity = %d \n", size,getcapacity()));
+        res.append(String.format("Array:size = %d , capacity = %d \n", size,getCapacity()));
         res.append("--[");
         for (int i = front; i != tail; i = (i+1)%data.length) {
             res.append(data[i]);
