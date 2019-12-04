@@ -15,5 +15,8 @@ public class Main {
         }
         linkedList.add(2,66);
         System.out.println(linkedList);
+        linkedList.remove(2);
+        System.out.println(linkedList);
     }
+
 }
