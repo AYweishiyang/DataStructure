@@ -1,5 +1,7 @@
 package com.ay.tree;
 
+import java.util.*;
+
 /**
  * @author ay
  * @create 2019-12-17 16:07
@@ -55,4 +57,168 @@ public class BST <E extends Comparable<E>>{
             return contains(node.right,e);
         }
     }
+    public void preOrder(){
+        preOrder(root);
+    }
+    private void preOrder(Node node){
+        if(node == null){
+            return;
+        }
+        System.out.println(node.e);
+        preOrder(node.left);
+        preOrder(node.right);
+    }
+
+    public void preOrderNR(){
+        Stack<Node> stack = new Stack<>();
+        stack.push(root);
+        while(!stack.isEmpty()){
+            Node cur = stack.pop();
+            System.out.println(cur.e);
+            if(cur.right != null){
+                stack.push(cur.right);
+            }
+            if(cur.left != null){
+                stack.push(cur.left);
+            }
+        }
+    }
+    public void inOrder(){
+        inOrder(root);
+    }
+    private void inOrder(Node node){
+        if(node == null){
+            return;
+        }
+        inOrder(node.left);
+        System.out.println(node.e);
+        inOrder(node.right);
+    }
+
+    public void postOrder(){
+        postOrder(root);
+    }
+    private void postOrder(Node node){
+        if(node == null){
+            return;
+        }
+        postOrder(node.left);
+        postOrder(node.right);
+        System.out.println(node.e);
+    }
+
+    public void levelOrder(){
+        Queue<Node> q = new LinkedList<>();
+        q.add(root);
+        while (!q.isEmpty()){
+            Node cur = q.remove();
+            System.out.println(cur.e);
+            if(cur.left != null){
+                q.add(cur.left);
+            }
+            if(cur.right != null){
+                q.add(cur.right);
+            }
+        }
+    }
+    public E minimun(){
+        if(size == 0){
+            throw new IllegalArgumentException("BST is empty");
+        }
+        return minimun(root).e;
+    }
+    private Node minimun(Node node){
+        if(node.left == null){
+            return node;
+        }
+        return minimun(node.left);
+    }
+
+    public E maximun(){
+        if(size == 0){
+            throw new IllegalArgumentException("BST is empty");
+        }
+        return maximun(root).e;
+    }
+
+    public E removeMin(){
+        E ret = minimun();
+        root = removeMin(root);
+        return ret;
+    }
+    private Node removeMin(Node node){
+        if(node.left == null){
+            Node rightNode = node.right;
+            node.right = null;
+            size --;
+            return rightNode;
+        }
+        node.left = removeMin(node.left);
+        return node;
+    }
+
+    public E removeMax(){
+        E ret = maximun();
+        root = removeMax(root);
+        return ret;
+    }
+    private Node removeMax(Node node){
+        if(node.right == null){
+            Node leftNode = node.left;
+            node.left = null;
+            size --;
+            return leftNode;
+        }
+        node.right = removeMax(node.right);
+        return node;
+    }
+
+
+    private Node maximun(Node node){
+        if(node.right == null){
+            return node;
+        }
+        return maximun(node.right);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder res = new StringBuilder();
+        generateBSTString(root, 0, res);
+        return res.toString();
+    }
+    private void generateBSTString(Node node, int depth, StringBuilder res){
+        if(node == null){
+            res.append(generateDepthString(depth) + "null\n");
+            return;
+        }
+        res.append(generateDepthString(depth) + node.e + "\n");
+        generateBSTString(node.left, depth+1, res);
+        generateBSTString(node.right,depth+1, res);
+
+    }
+
+    private String generateDepthString(int depth){
+        StringBuilder res = new StringBuilder();
+        for (int i = 0; i < depth; i++) {
+            res.append("--");
+        }
+        return res.toString();
+    }
+
+    public static void main(String[] args) {
+        BST<Integer> bst = new BST<>();
+        Random random = new Random();
+        int n = 1000;
+        for (int i = 0; i < n; i++) {
+            bst.add(random.nextInt(10000));
+        }
+        ArrayList<Integer> nums = new ArrayList<>();
+        while(!bst.isEmpty()){
+            nums.add(bst.removeMin());
+
+        }
+        System.out.println(nums);
+    }
+
 }
