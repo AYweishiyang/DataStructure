@@ -180,7 +180,15 @@ public class BST <E extends Comparable<E>>{
         }
         return maximun(node.right);
     }
-
+    public Node remove(E e){
+        return remove(root,e);
+    }
+    private Node remove(Node node,E e){
+        if(node == null){
+            return null;
+        }
+        if(e.compareTo(node)<0)
+    }
     @Override
     public String toString() {
         StringBuilder res = new StringBuilder();
