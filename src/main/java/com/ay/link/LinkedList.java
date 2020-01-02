@@ -88,6 +88,7 @@ public class LinkedList<E> {
             cur = cur.next;
         }
         cur.e = e;
+
     }
     public boolean contains(E e){
         Node cur =  dummyHead.next;
