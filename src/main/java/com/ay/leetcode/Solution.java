@@ -8,9 +8,10 @@ import com.ay.array.ArrayStack;
  * @create 2019-11-30 11:16
  */
 public class Solution {
-    public static void main(String[] args) {
-        System.out.println(isValid("()()"));
+    public int uniqueMorseRepresentations(String[] words) {
+
     }
+
     public static boolean isValid(String s) {
         ArrayStack<Character> stack = new ArrayStack<>();
         for (int i = 0; i < s.length(); i++) {
@@ -36,4 +37,9 @@ public class Solution {
         }
         return stack.isEmpty();
     }
+
+    public static void main(String[] args) {
+//        System.out.println(isValid("()()"));
+    }
+
 }

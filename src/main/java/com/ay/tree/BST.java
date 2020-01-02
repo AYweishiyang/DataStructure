@@ -1,7 +1,7 @@
 package com.ay.tree;
 
 import java.util.*;
-
+import java.util.Random;
 /**
  * @author ay
  * @create 2019-12-17 16:07
@@ -180,8 +180,9 @@ public class BST <E extends Comparable<E>>{
         }
         return maximun(node.right);
     }
-    public Node remove(E e){
-        return remove(root,e);
+
+    public void remove(E e){
+        root = remove(root, e);
     }
     private Node remove(Node node,E e){
         if(node == null){
@@ -254,17 +255,15 @@ public class BST <E extends Comparable<E>>{
 
     public static void main(String[] args) {
         BST<Integer> bst = new BST<>();
-        Random random = new Random();
-        int n = 1000;
-        for (int i = 0; i < n; i++) {
-            bst.add(random.nextInt(10000));
+        for (int i = 0; i < 10; i++) {
+            bst.add(i);
+            System.out.println(bst.size);
         }
-        ArrayList<Integer> nums = new ArrayList<>();
-        while(!bst.isEmpty()){
-            nums.add(bst.removeMin());
+        for (int i = 0; i < 10; i++) {
+            bst.remove(i);
+            System.out.println(bst.size);
+        }
 
-        }
-        System.out.println(nums);
     }
 
 }
