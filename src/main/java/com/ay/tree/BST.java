@@ -68,7 +68,7 @@ public class BST <E extends Comparable<E>>{
         preOrder(node.left);
         preOrder(node.right);
     }
-
+    //非递归遍历
     public void preOrderNR(){
         Stack<Node> stack = new Stack<>();
         stack.push(root);
@@ -141,6 +141,13 @@ public class BST <E extends Comparable<E>>{
         return maximun(root).e;
     }
 
+    private Node maximun(Node node){
+        if(node.right == null){
+            return node;
+        }
+        return maximun(node.right);
+    }
+
     public E removeMin(){
         E ret = minimum();
         root = removeMin(root);
@@ -174,12 +181,7 @@ public class BST <E extends Comparable<E>>{
     }
 
 
-    private Node maximun(Node node){
-        if(node.right == null){
-            return node;
-        }
-        return maximun(node.right);
-    }
+
 
     public void remove(E e){
         root = remove(root, e);
