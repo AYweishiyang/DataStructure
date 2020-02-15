@@ -1,14 +1,12 @@
 package com.ay.newSort;
 
-import com.ay.array.Array;
-
 import java.util.Arrays;
 
 /**
  * @author ay
  * @create 2020-01-13 10:56
  */
-public class Bubble<T extends Comparable<T>> extends Sort<T> {
+public class Bubble<T extends Comparable<T>> implements Sort<T> {
     @Override
     public void sort(T[] nums) {
         boolean isSorted = true;//如果某次循环中一次交换都没有，证明已经排好序了
@@ -18,9 +16,7 @@ public class Bubble<T extends Comparable<T>> extends Sort<T> {
                 if(!less(nums[j],nums[j+1]))
                 swap(nums, j, j + 1);
                 isSorted = true;
-
             }
-
         }
     }
 

@@ -1,6 +1,5 @@
 package com.ay.sort;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /**
@@ -22,8 +21,6 @@ public class MergetSort {
             mergeSort(arr, mid+1, right, temp);
             merge(arr, left, mid, right, temp);
         }
-
-
     }
 
     /**
@@ -67,6 +64,5 @@ public class MergetSort {
             t++;
             tempLeft++;
         }
-
     }
 }
