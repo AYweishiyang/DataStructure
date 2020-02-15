@@ -15,53 +15,55 @@ public class BubbleSort {
 //        index = twoSum(nums, 47);
 //        System.out.println(Arrays.toString(index));
 //        System.out.println(isPalindrome(100));
-//        int[] arr = {3,9,-1,10,-2,20,30,40,50};
-        int[] arr = new int[80000];
-        for (int i = 0; i < 80000; i++) {
-            arr[i] = (int)(Math.random() * 8000000);
-        }
-        long startTime = System.currentTimeMillis();
+        int[] arr = {3, 9, -1, 10, -2, 20, 30, 40, 50};
+//        int[] arr = new int[80000];
+//        for (int i = 0; i < 80000; i++) {
+//            arr[i] = (int)(Math.random() * 8000000);
+//        }
+        long startTime = System.nanoTime();
         bubbleSort(arr);
-        long endTime = System.currentTimeMillis();
-        System.out.println((endTime-startTime)/1000.0 + " s");
-
+        long endTime = System.nanoTime();
+        System.out.println((endTime - startTime) / 1000000000.0 + " s");
+        System.out.println(Arrays.toString(arr));
     }
 
-    public static void bubbleSort1(int[] arr){
-        for (int i = 0; i < arr.length - 1; i++) {//次数为数组长度减1
+    private static void swap(int[] arr, int i, int j) {
+        int t = arr[i];
+        arr[i] = arr[j];
+        arr[j] = t;
+    }
+
+    public static void bubbleSort1(int[] arr) {
+        for (int i = 1; i < arr.length; i++) {//次数为数组长度减1
             boolean flag = false;//标志此次循环是否进行过交换
-            for (int j = 0; j < arr.length - i - 1; j++) {
+            for (int j = 0; j < arr.length - i; j++) {
                 int temp = 0;
-                if(arr[j]>arr[j+1]){
+                if (arr[j] > arr[j + 1]) {
                     flag = true;
-                    temp = arr[j];//交换两个数
-                    arr[j]=arr[j+1];
-                    arr[j+1] = temp;
+                    swap(arr, j, j + 1);
                 }
             }
-            if(!flag){
+            if (!flag) {
                 break;
-            }else {
+            } else {
                 flag = false;
             }
         }
     }
 
-    public static void bubbleSort(int[] arr){
+    public static void bubbleSort(int[] arr) {
         int temp = 0;
         boolean flag = false;
-        for(int i = 0;i<arr.length-1;i++){
-            for (int j = 0; j < arr.length -1 -i; j++) {
-                if(arr[j]>arr[j+1]){
+        for (int i = 1; i < arr.length; i++) {
+            for (int j = 0; j < arr.length - i; j++) {
+                if (arr[j] > arr[j + 1]) {
                     flag = true;
-                    temp = arr[j];
-                    arr[j] = arr[j+1];
-                    arr[j+1] = temp;
+                    swap(arr, j, j + 1);
                 }
             }
-            if(!flag){
+            if (!flag) {
                 break;
-            }else {
+            } else {
                 flag = false;
             }
         }
