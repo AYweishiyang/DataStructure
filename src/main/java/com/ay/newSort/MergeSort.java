@@ -1,5 +1,7 @@
 package com.ay.newSort;
 
+import java.util.Arrays;
+
 /**
  * @author ay
  * @create 2020-02-03 9:52
@@ -11,7 +13,7 @@ public class MergeSort {
     }
 
     public static void sort(int[] arr, int L, int R) {
-        if (L > R) {
+        if (L == R) {
             return;
         }
         int mid = L + (R - L) / 2;
@@ -41,5 +43,14 @@ public class MergeSort {
         for(index = 0; index < temp.length; index++) {
             arr[L + index] = temp[index];
         }
+    }
+
+    public static void main(String[] args) {
+        //int[] nums = {3, 9, -1, 10, -2, 20, 30, 40, 50};
+        int[] nums = new int[]{3, 9, -1, 10, -2, 20, 30, 40, 50};
+        System.out.println(Arrays.toString(nums));
+        MergeSort mergeSort = new MergeSort();
+        mergeSort.mergeSort(nums);
+        System.out.println(Arrays.toString(nums));
     }
 }
