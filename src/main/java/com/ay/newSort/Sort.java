@@ -4,15 +4,15 @@ package com.ay.newSort;
  * @author ay
  * @create 2020-01-13 10:50
  */
-public abstract class Sort<T extends Comparable<T>> {
+public interface Sort<T extends Comparable<T>> {
 
-    public abstract void sort(T[] nums);
+    void sort(T[] nums);
 
-    protected boolean less(T v, T w) {
+    default boolean less(T v, T w) {
         return v.compareTo(w) < 0;
     }
 
-    protected void swap(T[] a, int i, int j) {
+    default void swap(T[] a, int i, int j) {
         T t = a[i];
         a[i] = a[j];
         a[j] = t;

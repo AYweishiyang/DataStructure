@@ -18,7 +18,7 @@ import java.util.Arrays;
     最坏的情况下需要 ~N2/2 比较以及 ~N2/2 次交换，最坏的情况是数组是倒序的；
     最好的情况下需要 N-1 次比较和 0 次交换，最好的情况就是数组已经有序了。
  */
-public class Insertion<T extends Comparable<T>> extends Sort<T> {
+public class Insertion<T extends Comparable<T>> implements Sort<T> {
     @Override
     public void sort(T[] nums) {
         int N = nums.length;
