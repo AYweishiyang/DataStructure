@@ -22,7 +22,7 @@ public class QuickSort<T extends Comparable<T>> implements Sort<T>{
     }
     @Override
     public void sort(T[] nums) {
-        quickSort(nums,0,nums.length-1);
+        quickSort3(nums,0,nums.length-1);
     }
     private void quickSort(T[] arr, int left, int right) {
         if(left >= right){
@@ -44,5 +44,24 @@ public class QuickSort<T extends Comparable<T>> implements Sort<T>{
         quickSort(arr,left,j-1);
         quickSort(arr,j+1,right);
 
+    }
+    private void quickSort3(T[] arr, int left, int right) {
+        if(left >= right){
+            return;
+        }
+        int lt = left, i = left + 1, gt = right;
+        T pivot = arr[left];
+        while(i<=gt){
+            int cmp = arr[i].compareTo(pivot);
+            if(cmp<0){
+                swap(arr,lt++,i++);
+            }else if(cmp > 0){
+                swap(arr,i,gt--);
+            }else {
+                i++;
+            }
+        }
+        quickSort3(arr, left, lt - 1);
+        quickSort3(arr, gt + 1, right);
     }
 }
