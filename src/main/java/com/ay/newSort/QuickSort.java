@@ -1,5 +1,7 @@
 package com.ay.newSort;
 
+import sun.awt.image.AbstractMultiResolutionImage;
+
 import java.util.Arrays;
 
 /**
@@ -9,7 +11,7 @@ import java.util.Arrays;
 public class QuickSort<T extends Comparable<T>> implements Sort<T>{
     public static void main(String[] args) {
         //int[] nums = {3, 9, -1, 10, -2, 20, 30, 40, 50};
-        Integer[] nums = new Integer[]{3, -2, 9, -1, 10, -2, 10,20, 30, 40, 50};
+        Integer[] nums = new Integer[]{3, -2, 9, -1, 10, 5, 50,20, 30, 40, 10};
         System.out.println(Arrays.toString(nums));
         QuickSort<Integer> quickSort = new QuickSort<>();
         quickSort.sort(nums);
@@ -20,32 +22,24 @@ public class QuickSort<T extends Comparable<T>> implements Sort<T>{
         quickSort(nums,0,nums.length-1);
     }
     private void quickSort(T[] arr, int left, int right) {
-        if (left < right) {
-            int i = left;
-            int j = right;
-            T pivot = arr[(left + right) / 2];//基准数
-            T temp;
-            while (i < j) {
-                //左标记右移，右标记左移
-                while (less(arr[i],pivot)) i++;
-                while (less(pivot,arr[j])) j--;
-                //左标记大于右标记证明已经有序，跳出
-                if (i >= j) {
-                    break;
-                }
-                //交换
-                swap(arr,i,j);
-
-                //交换后如果和pivot一样，需要跳过一位,否则陷入死循环
-                if (arr[i] == pivot) {
-                    j--;
-                }
-                if (arr[j] == pivot) {
-                    i++;
-                }
-            }
-            quickSort(arr, left, j-1);
-            quickSort(arr, j+1, right);
+        if(left >= right){
+            return;
         }
+        int i = left;
+        int j = right+1;
+        T pivot = arr[left];
+        while(true){
+            while(less(arr[++i],pivot) && i != right);
+            while(less(pivot,arr[--j]) && j != left);
+            if(i>=j){
+                break;
+            }
+            swap(arr,i,j);
+
+        }
+        swap(arr, left,j);
+        quickSort(arr,left,j-1);
+        quickSort(arr,j+1,right);
+
     }
 }
