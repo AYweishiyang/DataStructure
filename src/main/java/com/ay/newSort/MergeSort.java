@@ -8,11 +8,11 @@ import java.util.Arrays;
  */
 public class MergeSort {
 
-    public static void mergeSort(int[] arr) {
+    public  void mergeSort(int[] arr) {
         sort(arr, 0, arr.length - 1);
     }
 
-    public static void sort(int[] arr, int L, int R) {
+    public  void sort(int[] arr, int L, int R) {
         if (L == R) {
             return;
         }
@@ -22,7 +22,7 @@ public class MergeSort {
         merge(arr, L, mid, R);
     }
 
-    public static void merge(int[] arr, int L, int mid, int R) {
+    public  void merge(int[] arr, int L, int mid, int R) {
         int[] temp = new int[R - L + 1];
         int p1 = L;
         int p2 = mid + 1;
@@ -50,6 +50,7 @@ public class MergeSort {
         int[] nums = new int[]{3, 9, -1, 10, -2, 20, 30, 40, 50};
         System.out.println(Arrays.toString(nums));
         MergeSort mergeSort = new MergeSort();
+
         mergeSort.mergeSort(nums);
         System.out.println(Arrays.toString(nums));
     }
