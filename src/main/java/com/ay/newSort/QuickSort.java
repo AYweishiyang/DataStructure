@@ -30,10 +30,10 @@ public class QuickSort<T extends Comparable<T>> implements Sort<T>{
         }
         int i = left;
         int j = right+1;
-        T pivot = arr[left];
+        T pivot = arr[left];//基准
         while(true){
-            while(less(arr[++i],pivot) && i != right);//防止越界
-            while(less(pivot,arr[--j]) && j != left);
+            while(less(arr[++i],pivot) && i != right){};//防止越界
+            while(less(pivot,arr[--j]) && j != left){};
             if(i>=j){
                 break;
             }
