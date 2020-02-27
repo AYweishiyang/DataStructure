@@ -27,20 +27,34 @@ public class T14 {
 
         int max = 0;
         for (int i = 4; i <= target; i++) {
-            max = 0;
             for (int j = 1; j <= i / 2; j++) {
-                int product = products[j]*products[i-j];
-                if(product > products[i]){
-                    max = product;
-                }
-                products[i] = max;
+                max = Math.max(max,products[j]*products[i-j]);
             }
+            products[i] = max;
         }
         return products[target];
+    }
+//    贪婪算法
+    public int cutRope2(int target) {
+        if(target < 2){
+            return 0;
+        }
+        if(target == 2){
+            return 1;
+        }
+        if(target ==3){
+            return 2;
+        }
+        int timesOf3 = target / 3;
+        if(target%3 == 1){
+            timesOf3 --;
+        }
+        int timesOf2 = (target - timesOf3*3) / 2;
+       return (int) (Math.pow(3,timesOf3) * (int)Math.pow(2,timesOf2));
     }
 
     public static void main(String[] args) {
         T14 t14 = new T14();
-        System.out.println(t14.cutRope(5));
+        System.out.println(t14.cutRope2(5));
     }
 }
