@@ -1,8 +1,6 @@
 package com.ay.offer;
 
 
-import sun.reflect.generics.tree.Tree;
-
 /**
  * @author ay
  * @create 2020-02-25 15:52
@@ -39,14 +37,4 @@ public class T07 {
     }
 }
 
-
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-
-    TreeNode(int x) {
-        val = x;
-    }
-}
 
