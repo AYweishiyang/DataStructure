@@ -25,11 +25,7 @@ public class T34 {
         Collections.sort(lists, new Comparator<ArrayList<Integer>>() {//这道题题目中要求 (注意: 在返回值的list中，数组长度大的数组靠前)
             @Override
             public int compare(ArrayList<Integer> o1, ArrayList<Integer> o2) {
-                if(o1.size()<o2.size()){
-                    return 1;
-                }else {
-                    return -1;
-                }
+                return -Integer.compare(o2.size(), o1.size());
             }
         });
 
