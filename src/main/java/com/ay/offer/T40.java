@@ -18,33 +18,27 @@ public class T40 {
     public static ArrayList<Integer> GetLeastNumbers_Solution(int [] input, int k) {
         int length = input.length;
         ArrayList result = new ArrayList();
-        if(k == 0 || k > length || input == null){
+        if(k == 0 || k > length){
             return result;
         }
-        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(k, new Comparator<Integer>() {
-            @Override
-            public int compare(Integer o1, Integer o2) {
-                return o2.compareTo(o1);
-            }
-        });
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(k, (o1, o2) -> o2.compareTo(o1));
         for (int i = 0; i < length; i++) {
             if(maxHeap.size()!=k){
                 maxHeap.offer(input[i]);
             }else if(maxHeap.peek()>input[i]){
-                Integer temp = maxHeap.poll();
-                temp = null;
+                maxHeap.poll();
+//                Integer temp = maxHeap.poll();
+//                temp = null;
                 maxHeap.offer(input[i]);
             }
         }
-        for (Integer i:maxHeap         ) {
-            result.add(i);
-        }
+        result.addAll(maxHeap);
         return result;
     }
 
     public static void main(String[] args) {
         int[] arr = new int[]{4,5,1,6,2,7,3,8};
 
-        System.out.println(GetLeastNumbers_Solution(arr,0));
+        System.out.println(GetLeastNumbers_Solution(arr,5));
     }
 }
