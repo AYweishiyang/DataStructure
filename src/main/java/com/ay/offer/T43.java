@@ -76,6 +76,6 @@ public class T43 {
     }
 
     public static void main(String[] args) {
-        System.out.println(NumberOf1Between1AndN_Solution(1));
+        System.out.println(NumberOf1Between1AndN_Solution(1234));
     }
 }
