@@ -60,11 +60,11 @@ public class T45 {
      * @return
      */
     public static String PrintMinNumber2(int [] numbers) {
-        String str = "";
+        StringBuilder str = new StringBuilder();
         for (int i=0; i<numbers.length; i++){
             for (int j=i+1; j<numbers.length; j++){
-                int a = Integer.valueOf(numbers[i]+""+numbers[j]);
-                int b = Integer.valueOf(numbers[j]+""+numbers[i]);
+                int a = Integer.parseInt(numbers[i]+""+numbers[j]);
+                int b = Integer.parseInt(numbers[j]+""+numbers[i]);
                 if (a > b){
                     int t = numbers[i];
                     numbers[i] = numbers[j];
@@ -74,9 +74,9 @@ public class T45 {
             }
         }
         for (int i = 0; i < numbers.length; i++) {
-            str += String.valueOf(numbers[i]);
+            str.append(String.valueOf(numbers[i]));
         }
-        return str;
+        return str.toString();
     }
 
     public static void main(String[] args) {
