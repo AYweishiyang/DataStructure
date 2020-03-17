@@ -7,14 +7,17 @@ package com.ay.offer;
  * 题目描述
  * 在数组中的两个数字，如果前面一个数字大于后面的数字，则这两个数字组成一个逆序对。
  * 输入一个数组,求出这个数组中的逆序对的总数P。并将P对1000000007取模的结果输出。 即输出P%1000000007
- *
+ * <p>
  * 使用归并排序的思想
  */
 public class T51 {
     int count;
 
     public int InversePairs(int[] array) {
-        mergeSortUp2Down(array,0,array.length-1);
+        if (array == null || array.length <= 0) {
+            return 0;
+        }
+        mergeSortUp2Down(array, 0, array.length - 1);
         return count % 1000000007;
     }
 
@@ -25,11 +28,11 @@ public class T51 {
         int mid = (L + R) >> 1;
         mergeSortUp2Down(array, L, mid);
         mergeSortUp2Down(array, mid + 1, R);
-        merge(array,L,mid,R);
+        merge(array, L, mid, R);
 
     }
 
-    public  void merge(int[] arr, int L, int mid, int R) {
+    public void merge(int[] arr, int L, int mid, int R) {
         int[] temp = new int[R - L + 1];
         int p1 = L;
         int p2 = mid + 1;
@@ -45,14 +48,14 @@ public class T51 {
         }
         // 上面的循环退出后，把剩余的元素依次填入到temp中
         // 以下两个while只有一个会执行
-        while(p1<=mid){
+        while (p1 <= mid) {
             temp[index++] = arr[p1++];
         }
-        while(p2<=R){
+        while (p2 <= R) {
             temp[index++] = arr[p2++];
         }
         // 把最终的排序的结果复制给原数组
-        for(index = 0; index < temp.length; index++) {
+        for (index = 0; index < temp.length; index++) {
             arr[L + index] = temp[index];
         }
     }
