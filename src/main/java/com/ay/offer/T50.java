@@ -18,11 +18,12 @@ public class T50 {
     public static int FirstNotRepeatingChar(String str) {
         HashMap<Character, Integer> map = new HashMap<>();
         for (int i = 0; i < str.length(); i++) {
-            if (map.get(str.charAt(i)) == null) {
-                map.put(str.charAt(i), 1);
-            } else {
+            if (map.containsKey(str.charAt(i))) {
                 int count = map.get(str.charAt(i));
                 map.put(str.charAt(i), ++count);
+
+            } else {
+                map.put(str.charAt(i), 1);
             }
         }
         for (int i = 0; i < str.length(); i++) {
@@ -46,6 +47,7 @@ public class T50 {
     }
 
     public static void main(String[] args) {
-        System.out.println(FirstNotRepeatingChar("abaccdeff"));
+        //System.out.println(FirstNotRepeatingChar("abaccdeff"));
+        solution("abaccdeff");
     }
 }
