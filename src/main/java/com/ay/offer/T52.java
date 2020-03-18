@@ -14,8 +14,6 @@ public class T52 {
         if(pHead1 == null || pHead2 == null){
             return null;
         }
-        ListNode cur1 = pHead1;
-        ListNode cur2 = pHead2;
         int length1 = getLength(pHead1);
         int length2 = getLength(pHead2);
         int diffLength = length1-length2;//链表长度差
