@@ -9,8 +9,8 @@ import java.net.DatagramSocket;
  * @create 2020-03-10 17:42
  */
 public class udp {
-    public static void receiver() throws IOException {
 
+    public static void receiver() throws IOException {
         DatagramSocket socket = new DatagramSocket(9090);
 
         byte[] buffer = new byte[100];
