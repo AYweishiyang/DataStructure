@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * @create 2020-03-20 9:54
  * 题目描述
  * 输入一个递增排序的数组和一个数字S，在数组中查找两个数，使得他们的和正好是S，如果有多对数字的和等于S，输出两个数的乘积最小的。
- *
+ * <p>
  * 不要被题目误导了！证明如下，清晰明了：
  * //输出两个数的乘积最小的。这句话的理解？
  * 假设：若b>a,且存在，
@@ -45,17 +45,50 @@ public class T57 {
     }
 
     /**
+     * 题目描述
+     * 小明很喜欢数学,有一天他在做数学作业时,要求计算出9~16的和,他马上就写出了正确答案是100。
+     * 但是他并不满足于此,他在想究竟有多少种连续的正数序列的和为100(至少包括两个数)。
+     * 没多久,他就得到另一组连续正数和为100的序列:18,19,20,21,22。
+     * 现在把问题交给你,你能不能也很快的找出所有和为S的连续正数序列? Good Luck!
      *
-     题目描述
-     小明很喜欢数学,有一天他在做数学作业时,要求计算出9~16的和,他马上就写出了正确答案是100。
-     但是他并不满足于此,他在想究竟有多少种连续的正数序列的和为100(至少包括两个数)。
-     没多久,他就得到另一组连续正数和为100的序列:18,19,20,21,22。
-     现在把问题交给你,你能不能也很快的找出所有和为S的连续正数序列? Good Luck!
      * @param sum
      * @return
      */
-    public ArrayList<ArrayList<Integer> > FindContinuousSequence(int sum) {
+    public static ArrayList<ArrayList<Integer>> FindContinuousSequence(int sum) {
+        ArrayList<ArrayList<Integer>> lists = new ArrayList<>();
+        if (sum < 0) {
+            return lists;
+        }
+        int small = 1;
+        int big = 2;
+        int curSum = small + big;
+        while (small < (sum + 1) / 2) {
+            if (curSum == sum) {
+                ArrayList<Integer> list = new ArrayList<Integer>();
+                for (int i = small; i <= big; i++) {
+                    list.add(i);
+                }
+                lists.add(list);
+            }
+            while (curSum > sum && small < (sum + 1) / 2) {
+                curSum -= small;
+                small++;
+                if (curSum == sum) {
+                    ArrayList<Integer> list = new ArrayList<Integer>();
+                    for (int i = small; i <= big; i++) {
+                        list.add(i);
+                    }
+                    lists.add(list);
+                }
+            }
+            big++;
+            curSum += big;
 
+        }
+        return lists;
     }
 
+    public static void main(String[] args) {
+        System.out.println(FindContinuousSequence(3));
+    }
 }
