@@ -26,7 +26,7 @@ public class T59 {
         ArrayList<Integer> result = new ArrayList<>();
         //双端队列，用来记录每个窗口的最大值下标
         LinkedList<Integer> qmax = new LinkedList<>();
-        int index = 0;
+        //int index = 0;
         for (int i = 0; i < num.length; i++) {
             while (!qmax.isEmpty() && num[qmax.peekLast()] < num[i]) {
                 qmax.pollLast();
