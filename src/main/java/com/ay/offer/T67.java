@@ -25,7 +25,7 @@ public class T67 {
                 int temp = (str.charAt(i) - '0') ;
                 num += temp*times;
                 times *= 10;
-            }
+            }。，
             return -num;
         }else if(str.charAt(0) == '+'){
 
