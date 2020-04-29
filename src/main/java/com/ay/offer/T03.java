@@ -28,4 +28,39 @@ public class T03 {
         }
         return false;
     }
+
+
+    /**
+     * 不使用额外空间
+     * [ 2 3 1 0 2 5 3]
+     * [ 0 1 2 3 4 5 6]
+     * 不需要额外的数组或者hash table来保存，题目里写了数组里数字的范围保证在0 ~ n-1 之间，
+     * 所以可以利用现有数组设置标志，当一个数字被访问过后，可以设置对应位上的数 + n，之后再遇到相同的数时，会发现对应位上的数已经大于等于n了，那么直接返回这个数即可
+     * @param numbers
+     * @param length
+     * @param duplication
+     * @return
+     */
+    public static boolean duplicate1(int numbers[], int length, int[] duplication) {
+        for (int i = 0; i < length; i++) {
+            int index = numbers[i];
+            if (index >= length) {
+                index -= length;
+            }
+            if (numbers[index] >= length) {
+                duplication[0] = index;
+                return true;
+            }
+            numbers[index] = numbers[index] + length;
+        }
+        return false;
+
+    }
+
+    public static void main(String[] args) {
+        int[] numbers = new int[]{2, 3, 1, 0, 2, 5, 3};
+        int[] duplication = new int[1];
+        System.out.println(duplicate1(numbers, numbers.length, duplication));
+        System.out.println(duplication[0]);
+    }
 }
