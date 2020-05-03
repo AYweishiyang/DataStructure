@@ -16,16 +16,9 @@ public class T06 {
             this.val = val;
         }
     }
-    public static void printListInverselyUsingRecursion(ListNode node,ArrayList arrayList) {
-        if (node == null){
-            return;
-        }
-        printListInverselyUsingRecursion(node.next,arrayList);
-//        System.out.print(node.val+ " ");
-        arrayList.add(node.val);
-    }
+
     public static ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
-//        //使用栈
+//        //使用栈 速度快
 //        if(listNode == null){
 //            return null;
 //        }
@@ -41,11 +34,19 @@ public class T06 {
 //        }
 //        return arrayList;
 
-        //使用递归
+        //使用递归 优解
         ArrayList<Integer> arrayList = new ArrayList<>();
         printListInverselyUsingRecursion(listNode,arrayList);
         return arrayList;
 
+    }
+    public static void printListInverselyUsingRecursion(ListNode node,ArrayList arrayList) {
+        if (node == null){
+            return;
+        }
+        printListInverselyUsingRecursion(node.next,arrayList);
+//        System.out.print(node.val+ " ");
+        arrayList.add(node.val);
     }
     public static void main(String[] args) {
         ListNode head = new ListNode(1);

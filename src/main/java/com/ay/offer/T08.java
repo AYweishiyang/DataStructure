@@ -21,19 +21,23 @@ public class T08 {
     }
     public TreeLinkNode GetNext(TreeLinkNode pNode)
     {
+        //健壮性
         if(pNode == null){
             return null;
         }
-        TreeLinkNode temp = null;
+        TreeLinkNode temp;
+        //此结点有右子树，则其下一个结点为：其右子树上的最左结点
         if(pNode.right != null){
             temp = pNode.right;
             while(temp.left != null){
                 temp = temp.left;
             }
             return temp;
-        }else if(pNode.next != null){
+        }//如果pNode.next == null，证明是根节点，而且是没右子树的根节点，则不存在下一个节点
+        else if(pNode.next != null){
             temp = pNode.next;
             TreeLinkNode cur = pNode;
+            //当循环到父节点为空或cur为父节点的左孩子，循环结束
             while(temp != null && cur==temp.right){
                 cur = temp;
                 temp = temp.next;
