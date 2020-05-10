@@ -14,15 +14,29 @@ package com.ay.offer;
 public class T13 {
     public int movingCount(int threshold, int rows, int cols)
     {
+        //标记是否走过
         boolean[][] visited = new boolean[rows][cols];
         return countingStep(threshold, rows, cols, 0, 0, visited);
 
     }
+
+    /**
+     *
+     * @param threshold
+     * @param rows
+     * @param cols
+     * @param r
+     * @param c
+     * @param visited
+     * @return
+     */
     private int countingStep(int threshold,int rows,int cols,int r,int c,boolean[][] visited){
+        //递归终止条件 ：越界 大于threshold 已经走过
         if(r<0 || c < 0 || r>=rows || c >= cols || bitSum(r) + bitSum(c) > threshold || visited[r][c]){
             return 0;
         }
         visited[r][c] = true;
+        //数字1 代表(0,0)这个坐标，
         return countingStep(threshold,rows,cols,r+1,c,visited)+
                 countingStep(threshold,rows,cols,r-1,c,visited)+
                 countingStep(threshold,rows,cols,r,c+1,visited)+
@@ -33,7 +47,9 @@ public class T13 {
     private int bitSum(int num){
         int count = 0;
         while(num > 0){
+            //获得最低位
             count += num %10;
+            //除以10来去掉最低位
             num = num /10;
         }
         return count;

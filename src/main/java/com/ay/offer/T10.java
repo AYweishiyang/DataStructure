@@ -9,11 +9,11 @@ package com.ay.offer;
 public class T10 {
     /**
      * 时间复杂度O(n)
-     *
+     * 动态规划思想
      * @param n
      * @return
      */
-    public int Fibonacci(int n) {
+    public int fibonacci(int n) {
         if (n <= 0) {
             return 0;
         } else if (n == 1) {
@@ -40,17 +40,17 @@ public class T10 {
      * @param target
      * @return
      */
-    public static int JumpFloorII(int target) {
+    public static int jumpFloorII(int target) {
         if(target <= 0){
             return -1;
         }
         if(target == 1){
             return 1;
         }
-        return 2 * JumpFloorII(target-1);
+        return 2 * jumpFloorII(target-1);
     }
 
     public static void main(String[] args) {
-        System.out.println(JumpFloorII(4));
+        System.out.println(jumpFloorII(4));
     }
 }
