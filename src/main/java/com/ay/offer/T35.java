@@ -29,7 +29,8 @@ public class T35 {
         }
     }
     private void connectRandomNodes(RandomListNode pHead){
-        RandomListNode curNode = pHead;//原节点
+        //原节点
+        RandomListNode curNode = pHead;
         //RandomListNode cloneNode = null;//克隆的节点
         while(curNode != null){
 

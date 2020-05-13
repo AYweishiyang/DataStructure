@@ -7,10 +7,16 @@ package com.ay.offer;
  *
  * 思路
  * 1 确定是否包含环，找到一个在环内的节点，该节点用于计算环的节点个数K
- * 2 双指针 第一个指针先走K,然后
+ * 2 双指针 第一个指针先走K,然后同时移动p1，p2，当p1==p2时即找到
  */
 public class T23 {
-
+    /**
+     * 两个结论：
+     * 1、设置快慢指针，假如有环，他们最后一定相遇。
+     * 2、两个指针分别从链表头和相遇点继续出发，每次走一步，最后一定相遇与环入口。
+     * @param pHead
+     * @return
+     */
     public ListNode EntryNodeOfLoop(ListNode pHead)
     {
         ListNode meet = meetingNode(pHead);
@@ -51,6 +57,12 @@ public class T23 {
         }
         return p1;
     }
+
+    /**
+     * 找到一个在环内的节点
+     * @param head
+     * @return
+     */
     private ListNode meetingNode(ListNode head){
         ListNode slow = head;
         ListNode fast = head;

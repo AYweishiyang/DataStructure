@@ -17,11 +17,13 @@ public class T31 {
         int popIndex = 0;
         for (int i = 0; i < pushA.length; i++) {
             stack.push(pushA[i]);
+            //如果stack的peek等于popA就出栈
             while (!stack.empty() && stack.peek() == popA[popIndex]){
                 stack.pop();
                 popIndex++;
             }
         }
+        //stack为空证明IsPopOrder
         return stack.empty();
     }
 

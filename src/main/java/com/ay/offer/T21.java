@@ -13,10 +13,10 @@ public class T21 {
         int pre = 0;
         int last = array.length - 1;
         while (pre < last) {
-            while (pre < array.length - 1 && array[pre] % 2 == 1) {
+            while (pre < array.length - 1 && (array[pre] & 1)  == 1) {
                 pre++;
             }
-            while (last > 0 && array[last] % 2 == 0) {
+            while (last > 0 && (array[last] & 1) == 0) {
                 last--;
             }
             if (pre < last) {
@@ -27,12 +27,16 @@ public class T21 {
         }
     }
 
+    /**
+     * 1, 2, 3, 4, 5, 6
+     * @param array
+     */
     public void reOrderArray1(int[] array){
         //相对位置不变，稳定性
         //插入排序的思想
-        int m = array.length;
+        int length = array.length;
         int k = 0;//记录已经摆好位置的奇数的个数
-        for (int i = 0; i < m; i++) {
+        for (int i = 0; i < length; i++) {
             if (array[i] % 2 == 1) {
                 int j = i;
                 while (j > k) {//j >= k+1
@@ -49,7 +53,7 @@ public class T21 {
 
     public static void main(String[] args) {
         T21 t21 = new T21();
-        int[] array = {1, 2, 3, 4, 5, 6};
+        int[] array = {2, 2, 2, 2, 2, 1};
 //        t21.reOrderArray(array);
         t21.reOrderArray1(array);
         System.out.println(Arrays.toString(array));
