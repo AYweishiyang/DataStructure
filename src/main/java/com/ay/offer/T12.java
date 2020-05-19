@@ -1,12 +1,26 @@
 package com.ay.offer;
-//未搞懂
-
 /**
  * @author ay
  * @create 2020-02-27 9:28
- * <p>
- * <p>
  * 回溯
+ * 回溯法（探索与回溯法）是一种选优搜索法，又称为试探法，按选优条件向前搜索，以达到目标。但当探索到某一步时，发现原先选择并不优或达不到目标，
+ * 就退回一步重新选择，这种走不通就退回再走的技术为回溯法，而满足回溯条件的某个状态的点称为“回溯点”。
+ * 其实我总结起来就3点：
+ * 1 出口。一个递归算法一定要有出口，否则就是一个死循环了。出口语句一般都挺好写的，但 是出口语句该放在哪儿了，这个就是关键了，
+ * 这儿容许我先卖个关子。
+ * 2 递归函数的参数。一般情况下，递归函数是要带参数的，因为递归操作都是用来处理下一次的过程，如果没有参数的话，
+ * 那么就很难从下一次的操作回溯到当前操作了。这么说，可能会有点迷糊，别急，后面我会举例子，这儿还是卖个关子。
+ * 3 递归函数的处理过程。这个自不必多说，重中之重，需要好好理解其过程
+ * 上面3点就是我总结的关于回溯法的关键点了，我觉得只要真正的把这3步吃透，一般的回溯法题目是ok的（这可不是我吹牛哈）
+ * 下面我就这3点仔细讲讲，大家可要竖起耳朵通清楚了哈。
+ * <p>
+ * 1 出口
+ * <p>
+ * 关于这个出口条件，就像我上面说的，它的关键是出口语句放置的位置，因为这个语句其实挺好写的，一般也就2-3行代码，
+ * 大多数人都能想出来。但我觉得大多数人苦恼的就是不知道该把它放在哪儿，我刚开始也是这样，后面总结了2-3题之后，
+ * 我发现了一个万能规律，就是把出口语句放在递归函数的第一行就行，大家可以看看八皇后问题的递归函数back()
+ * 以及迷宫问题的递归函数back()，我这儿就直接贴出来。
+ * <p>
  * 基本思想：
  * 0.根据给定数组，初始化一个标志位数组，初始化为false，表示未走过，true表示已经走过，不能走第二次
  * 1.根据行数和列数，遍历数组，先找到一个与str字符串的第一个元素相匹配的矩阵元素，进入judge
@@ -30,36 +44,24 @@ public class T12 {
         }
         return false;
     }
-
-//    //judge(初始矩阵，索引行坐标i，索引纵坐标j，矩阵行数，矩阵列数，待判断的字符串，字符串索引初始为0即先判断字符串的第一位)
-//    private boolean myjudge(char[] matrix, int i, int j, int rows, int cols, boolean[] flag, char[] str, int k) {
-//        int index = i * rows + j;
-//        //递归终止条件
-//        if (i < 0 || j < 0 || i >= rows || j >= cols || matrix[index]!= str[k] || flag[index] == true) {
-//            return false;
-//        }
-//        if(k==str[str.length-1]){
-//            return true;
-//        }
-//        flag[index] = true;
-//        if(myjudge(matrix,i+1,j,rows,cols,flag,str,k+1) ||
-//                myjudge(matrix,i,j+1,rows,cols,flag,str,k+1) ||
-//                myjudge(matrix,i-1,j,rows,cols,flag,str,k+1) ||
-//                myjudge(matrix,i,j-1,rows,cols,flag,str,k+1)
-//        ){
-//            return true;
-//        }
-//        flag[index] = false;
-//        return false;
-//
-//    }
-
-    //judge(初始矩阵，索引行坐标i，索引纵坐标j，矩阵行数，矩阵列数，待判断的字符串，字符串索引初始为0即先判断字符串的第一位)
+    /**
+     * judge(初始矩阵，索引行坐标i，索引纵坐标j，矩阵行数，矩阵列数，待判断的字符串，字符串索引初始为0即先判断字符串的第一位)
+     *
+     * @param matrix 初始矩阵
+     * @param i 索引行坐标i
+     * @param j 索引纵坐标j
+     * @param rows 矩阵行数
+     * @param cols 矩阵列数
+     * @param flag 标志位
+     * @param str 待判断的字符串
+     * @param k 字符串索引初始为0即先判断字符串的第一位
+     * @return
+     */
     private boolean judge(char[] matrix, int i, int j, int rows, int cols, boolean[] flag, char[] str, int k) {
         //先根据i和j计算匹配的第一个元素转为一维数组的位置
         int index = i * cols + j;
-        //递归终止条件
-        if (i < 0 || j < 0 || i >= rows || j >= cols || matrix[index] != str[k] || flag[index] == true) {
+        //递归终止条件:越界，当前找到的矩阵值不等于数组对应位置的值，已经走过的
+        if (i < 0 || j < 0 || i >= rows || j >= cols || matrix[index] != str[k] || flag[index]) {
             return false;
         }
         //若k已经到达str末尾了，说明之前的都已经匹配成功了，直接返回true即可
@@ -76,8 +78,29 @@ public class T12 {
                 judge(matrix, i, j + 1, rows, cols, flag, str, k + 1)) {
             return true;
         }
-        //走到这，说明这一条路不通，还原，再试其他的路径 ？？？？？
+        //走到这，说明这一条路不通，还原，再试其他的路径
         flag[index] = false;
         return false;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

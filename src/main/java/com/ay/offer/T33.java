@@ -12,7 +12,7 @@ package com.ay.offer;
  * 且这两段（子树）都是合法的后序序列。完美的递归定义
  */
 public class T33 {
-    public static boolean VerifySquenceOfBST(int[] sequence) {
+    public static boolean verifySquenceOfBST(int[] sequence) {
         if (sequence == null || sequence.length == 0) {
             return false;
         }
@@ -20,27 +20,31 @@ public class T33 {
     }
 
     private static boolean judge(int[] sequence, int l, int r) {
-        if (l >= r) { //递归到叶子节点证明合法
+        //递归终止条件
+        if (l >= r) {
             return true;
         }
-
+        //根节点为序列的最后一个数
         int root = sequence[r];
         int i = l;
-        for (; i < r - 1; i++) {//找出第一个大于root的节点
+        //找出第一个大于root的节点，即右子树序列的第一个数
+        for (; i < r - 1; i++) {
             if (root < sequence[i]) {
                 break;
             }
         }
-        for (int j = i+1; j < r - 1; j++) {//如果右子树有节点小于root，false
+        //如果右子树有节点小于root，违背规则 所以false
+        for (int j = i+1; j < r - 1; j++) {
             if (sequence[j] < root) {
                 return false;
             }
         }
+        //对左右子树进行同样的处理
         return judge(sequence, l, i - 1) && judge(sequence, i, r - 1);
     }
 
     public static void main(String[] args) {
         int[] a = {7,4,6,5};
-        System.out.println(VerifySquenceOfBST(a));
+        System.out.println(verifySquenceOfBST(a));
     }
 }

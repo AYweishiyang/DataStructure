@@ -8,6 +8,7 @@ package com.ay.offer;
 public class T25 {
     //递归版本：
     public ListNode Merge(ListNode list1,ListNode list2) {
+        //终止条件：有链表走到最后了
         if(list1 == null){
             return list2;
         }else if(list2 == null){
@@ -25,7 +26,7 @@ public class T25 {
         return mergeHead;
 
     }
-    //非递归版本：
+    //非递归版本：首先找到头结点，然后对比两个链表的节点，谁小接谁，谁被接谁后移一步
     public ListNode Merge2(ListNode list1,ListNode list2) {
         if(list1 == null){
             return list2;
@@ -36,6 +37,7 @@ public class T25 {
         ListNode cur = null;
         while(list1 != null && list2 != null){
             if(list1.val <= list2.val){
+
                 if(mergeHead == null){
                     mergeHead = cur = list1;
                 }else {
@@ -53,6 +55,7 @@ public class T25 {
                 list2 = list2.next;
             }
         }
+        //处理最后剩余的节点
         if(list1 == null){
             cur.next = list2;
         }else {

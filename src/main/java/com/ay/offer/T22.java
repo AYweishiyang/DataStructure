@@ -4,6 +4,7 @@ package com.ay.offer;
  * @author ay
  * @create 2020-02-29 10:42
  * 输入一个链表，输出该链表中倒数第k个结点。
+ * 思路：
  */
 public class T22 {
     public ListNode FindKthToTail(ListNode head,int k) {
@@ -12,6 +13,7 @@ public class T22 {
         }
         ListNode left = head;
         ListNode right = head;
+        //left先走k-1步
         for(int i = 0;i < k-1; i++){
             if(right.next != null){//健壮性，如果链表长度小于k,会越界，加判断阻止空指针异常
                 right = right.next;
@@ -20,6 +22,7 @@ public class T22 {
             }
 
         }
+        //同时移动，直到right到尾
         while(right.next!=null){
             right = right.next;
             left = left.next;

@@ -1,6 +1,10 @@
 package com.ay.offer;
 
 /**
+ * 经典
+ * 思路：首先要从root1中找到一个节点A和root2的根相同，
+ * 如果找到了就看A节点为根的树是否包含root2树
+ * 否则遍历root1 继续寻找和root2相同的节点
  * @author ay
  * @create 2020-03-03 16:46
  * 输入两棵二叉树A，B，判断B是不是A的子结构。（ps：我们约定空树不是任意一个树的子结构）
@@ -30,15 +34,16 @@ public class T26 {
     }
 
     public static boolean doesTree1HaveTree2(TreeNode node1, TreeNode node2) {
-        //如果Tree2已经遍历完了都能对应的上，返回true
+        // 递归终止条件：
+        // 1 如果Tree2已经遍历完了都能对应的上，返回true
         if (node2 == null) {
             return true;
         }
-        //如果Tree2还没有遍历完，Tree1却遍历完了。返回false
+        //2 如果Tree2还没有遍历完，Tree1却遍历完了。返回false
         if (node1 == null) {
             return false;
         }
-        //如果其中有一个点没有对应上，返回false
+        //3 如果其中有一个点没有对应上，返回false
         if (node1.val != node2.val) {
             return false;
         }
