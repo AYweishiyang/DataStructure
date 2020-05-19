@@ -69,8 +69,8 @@ public class T43 {
         }
         int count = 0;
         for (int i = 1; i <= n; i = i * 10) {
-            int diviver = i * 10;
-            count += (n / diviver) * i + Math.min(Math.max(n % diviver - i + 1, 0), i);
+            int divider = i * 10;
+            count += (n / divider) * i + Math.min(Math.max(n % divider - i + 1, 0), i);
         }
         return count;
     }

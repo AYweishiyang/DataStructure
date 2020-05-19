@@ -40,9 +40,9 @@ public class T45 {
             public int compare(Integer o1, Integer o2) {
                 String str1 = o1 + "" + o2;
                 String str2 = o2 + "" + o1;
-                System.out.println("str1=="+str1);
-                System.out.println("str2=="+str2);
-                System.out.println(str1.compareTo(str2));
+                //System.out.println("str1=="+str1);
+                //System.out.println("str2=="+str2);
+                //System.out.println(str1.compareTo(str2));
                 return str1.compareTo(str2);
             }
         });
@@ -56,6 +56,7 @@ public class T45 {
     /**
      * 所以在这里自定义一个比较大小的函数，比较两个字符串s1, s2大小的时候，先将它们拼接起来，比较s1+s2,和s2+s1那个大，
      * 如果s1+s2大，那说明s2应该放前面，所以按这个规则，s2就应该排在s1前面。
+     * 进行选择排序
      * @param numbers
      * @return
      */
@@ -70,11 +71,39 @@ public class T45 {
                     numbers[i] = numbers[j];
                     numbers[j] = t;
                 }
-                System.out.println(Arrays.toString(numbers));
             }
         }
         for (int i = 0; i < numbers.length; i++) {
-            str.append(String.valueOf(numbers[i]));
+            str.append(numbers[i]);
+        }
+        return str.toString();
+    }
+
+    /**
+     * 使用冒泡排序不行
+     * @param numbers
+     * @return
+     */
+    public static String PrintMinNumber3(int [] numbers) {
+        StringBuilder str = new StringBuilder();
+        //如果某次循环中一次交换都没有，证明已经排好序了
+        boolean isSorted = true;
+        for (int i = 1; i < numbers.length && isSorted; i++) {
+            //isSorted = false;
+            for (int j = 0; j < numbers.length - i; j++) {
+                int a = Integer.parseInt(numbers[i]+""+numbers[j]);
+                int b = Integer.parseInt(numbers[j]+""+numbers[i]);
+                if (a > b){
+                    int t = numbers[i];
+                    numbers[i] = numbers[j];
+                    numbers[j] = t;
+                }
+
+                //isSorted = true;
+            }
+        }
+        for (int i = 0; i < numbers.length; i++) {
+            str.append(numbers[i]);
         }
         return str.toString();
     }
@@ -82,7 +111,7 @@ public class T45 {
     public static void main(String[] args) {
         int[] arr = new int[]{3,32,321};
         System.out.println(PrintMinNumber(arr));
-
-
+        System.out.println(PrintMinNumber2(arr));
+        System.out.println(PrintMinNumber3(arr));
     }
 }

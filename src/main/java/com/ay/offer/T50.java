@@ -48,7 +48,7 @@ public class T50 {
     }
 
     public static void main(String[] args) {
-        //System.out.println(FirstNotRepeatingChar("abaccdeff"));
-        solution("abaccdeff");
+        System.out.println(FirstNotRepeatingChar("abaccdeff"));
+        System.out.println(solution("abaccdeff"));
     }
 }

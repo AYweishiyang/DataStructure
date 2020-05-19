@@ -15,7 +15,8 @@ public class T42 {
         int max = Integer.MIN_VALUE;
         int curSum = 0;
         for (int i = 0; i < array.length; i++) {
-            if (curSum < 0) {//如果当前和为负数，就放弃前面所有
+            //如果当前和为负数，就放弃前面所有
+            if (curSum < 0) {
                 curSum = array[i];
             } else {
                 curSum += array[i];
@@ -25,7 +26,6 @@ public class T42 {
                 max = curSum;
             }
         }
-
         return max;
     }
 
@@ -57,8 +57,10 @@ public class T42 {
      * @return
      */
     public  int FindGreatestSumOfSubArray2(int[] array) {
-        int res = array[0]; //记录当前所有子数组的和的最大值
-        int max=array[0];   //包含array[i]的连续数组最大值
+        //记录当前所有子数组的和的最大值
+        int res = array[0];
+        //包含array[i]的连续数组最大值
+        int max=array[0];
         for (int i = 1; i < array.length; i++) {
             max=Math.max(max+array[i], array[i]);
             res=Math.max(max, res);

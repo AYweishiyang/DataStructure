@@ -66,9 +66,11 @@ import java.util.ArrayList;
  * |5 10 15
  * 目前指针指向1,1,0，队列头arr[1] * 2 = 4,  arr[1] * 3 = 6, arr[0] * 5 = 5
  * ………………
+ *
  */
 public class T49 {
     public static int GetUglyNumber_Solution2(int n) {
+        //1 2 3 4 5 6 前六个数均为丑数
         if (n < 7) {
             return n;
         }
@@ -84,9 +86,16 @@ public class T49 {
             int m5 = list.get(i5)*5;
             int min = Math.min(Math.min(m2,m3),m5);
             list.add(min);
-            if(min == m2) i2++;
-            if(min == m3) i3++;
-            if(min == m5) i5++;
+            //下面三个if代表命中哪个，对应的指针就后移
+            if(min == m2) {
+                i2++;
+            }
+            if(min == m3) {
+                i3++;
+            }
+            if(min == m5) {
+                i5++;
+            }
         }
         return list.get(list.size()-1);
     }

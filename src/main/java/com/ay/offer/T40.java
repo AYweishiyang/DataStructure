@@ -30,7 +30,9 @@ public class T40 {
             if(maxHeap.size()!=k){
                 maxHeap.offer(input[i]);
             }else if(maxHeap.peek()>input[i]){
+                //弹出堆顶
                 maxHeap.poll();
+                //插入堆
                 maxHeap.offer(input[i]);
             }
         }
