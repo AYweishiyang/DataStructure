@@ -20,6 +20,7 @@ public class T42 {
             } else {
                 curSum += array[i];
             }
+            //更新最大值
             if (curSum > max) {
                 max = curSum;
             }

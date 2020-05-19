@@ -1,7 +1,5 @@
 package com.ay.offer;
 
-import java.util.Arrays;
-
 /**
  * @author ay
  * @create 2020-03-13 16:28
@@ -14,11 +12,12 @@ import java.util.Arrays;
  * 第一个数字作为第一个士兵，守阵地；count = 1；
  * 遇到相同元素，count++;
  * 遇到不相同元素，即为敌人，同归于尽,count--；
- * 当遇到count为0的情况，又以新的i值作为守阵地的士兵，继续下去，到最后还留在阵地上的士兵，有可能是主元素。
- * 再加一次循环，记录这个士兵的个数看是否大于数组一般即可。
+ * 当遇到count为0的情况，又以新的i值作为守阵地的士兵，继续下去，到最后还留在阵地上的士兵，
+ * 有可能是主元素。
+ * 再加一次循环，记录这个士兵的个数看是否大于数组一半即可。
  */
 public class T39 {
-    public static int MoreThanHalfNum_Solution(int [] array) {
+    public static int moreThanHalfNumSolution(int [] array) {
         int count = 1;
         int length = array.length;
         if(array == null || length <= 0){
@@ -50,8 +49,8 @@ public class T39 {
     }
 
     public static void main(String[] args) {
-        int[] arr = new int[]{4,2,4,1,4,2};
-        System.out.println(MoreThanHalfNum_Solution(arr));
+        int[] arr = new int[]{4,2,4,2,4,2,4,2,2};
+        System.out.println(moreThanHalfNumSolution(arr));
      //   System.out.println(Arrays.toString(arr));
     }
 }

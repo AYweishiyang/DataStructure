@@ -40,7 +40,7 @@ public class T37 {
         String[] strr = str.split("!");
         TreeNode node = null;
         if(!strr[index].equals("#")){
-            node = new TreeNode(Integer.valueOf(strr[index]));
+            node = new TreeNode(Integer.parseInt(strr[index]));
             node.left = Deserialize(str);
             node.right = Deserialize(str);
         }
