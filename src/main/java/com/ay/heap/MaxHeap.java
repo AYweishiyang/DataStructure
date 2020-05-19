@@ -35,10 +35,11 @@ public class MaxHeap<E extends Comparable<E>> {
         return data.isEmpty();
     }
 
-    // 返回完全二叉树的数组表示中，一个索引所表示的元素的父亲节点的索引
+    // 返回完全二叉树的数组表示中，一个索引所表示的元素的父亲节点的索引，数组index从0开始
     private int parent(int index) {
-        if (index == 0)
+        if (index == 0) {
             throw new IllegalArgumentException("index-0 doesn't have parent.");
+        }
         return (index - 1) / 2;
     }
 
@@ -57,11 +58,28 @@ public class MaxHeap<E extends Comparable<E>> {
         data.addLast(e);
         siftUp(data.getSize() - 1);
     }
-
+    //对data 索引为k的元素进行上浮
     private void siftUp(int k) {
         while (k > 0 && data.get(parent(k)).compareTo(data.get(k)) < 0) {
             data.swap(k, parent(k));
             k = parent(k);
+        }
+    }
+    //对data 索引为k的元素进行下沉
+    private void siftDown(int k) {
+        //如果当前索引的左孩子小于数组长度，证明非叶子节点
+        while (leftChild(k) < data.getSize()) {
+            int j = leftChild(k);
+            //如果存在右子节点且右节点大于左节点
+            if (j + 1 < data.getSize() && data.get(j + 1).compareTo(data.get(j)) >= 0) {
+                j = rightChild(k);
+            }
+            //如果父节点大于子节点中最大的值，跳出
+            if (data.get(k).compareTo(data.get(j)) >= 0) {
+                break;
+            }
+            data.swap(k, j);
+            k = j;
         }
     }
 
@@ -81,22 +99,7 @@ public class MaxHeap<E extends Comparable<E>> {
         return ret;
     }
 
-    private void siftDown(int k) {
 
-        while (leftChild(k) < data.getSize()) {
-            int j = leftChild(k);
-            //如果存在右子节点且右节点大于左节点
-            if (j + 1 < data.getSize() && data.get(j + 1).compareTo(data.get(j)) >= 0) {
-                j = rightChild(k);
-            }
-            //如果父节点大于子节点中最大的值，跳出
-            if (data.get(k).compareTo(data.get(j)) >= 0) {
-                break;
-            }
-            data.swap(k, j);
-            k = j;
-        }
-    }
 
     //取出最大值，并替换成e
     public E replace(E e) {
