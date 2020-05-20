@@ -21,6 +21,7 @@ public class T55 {
     /**
      * 题目描述
      * 输入一棵二叉树，判断该二叉树是否是平衡二叉树。
+     *
      * @param root
      * @return
      */
@@ -28,6 +29,11 @@ public class T55 {
         return getDepth(root) != -1;
     }
 
+    /**
+     *
+     * @param root
+     * @return -1 代表不平衡
+     */
     private int getDepth(TreeNode root) {
         if (root == null) {
             return 0;

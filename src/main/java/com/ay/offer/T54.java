@@ -12,14 +12,17 @@ public class T54 {
 
     TreeNode KthNode(TreeNode pRoot, int k) {
         if (pRoot != null) {
+            //左
             TreeNode node = KthNode(pRoot.left, k);//在当前节点的左节点找第k个节点
             if (node != null) {//找到了就返回
                 return node;
             }
+            //中
             index++;
             if (index == k) {
                 return pRoot;
             }
+            //右
             node = KthNode(pRoot.right, k);
             if (node != null) {
                 return node;

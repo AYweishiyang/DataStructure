@@ -22,11 +22,15 @@ public class T56 {
             num2[0] = array[1];
             return;
         }
+        //一个数和0异或还是它本身
         int bitResult = 0;
+        //得出这两个不同的数的异或结果
         for (int i = 0; i < length; i++) {
             bitResult ^= array[i];
         }
+        //找出异或结果中的第一个1(从左边数)
         int first1Index = getFirst1(bitResult);
+        //分成两组，一组为第first1Index 位为1 另一组第first1Index为0
         for (int i = 0; i < length; i++) {
             if(isBit1(array[i],first1Index)){
                 num1[0] ^= array[i];
@@ -48,4 +52,5 @@ public class T56 {
     private boolean isBit1(int number, int index) {
         return ((number >> index) & 1) == 1;
     }
+
 }

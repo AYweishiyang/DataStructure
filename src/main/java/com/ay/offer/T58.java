@@ -14,7 +14,7 @@ package com.ay.offer;
  * 依据空格来确定单词的起始和终止位置
  */
 public class T58 {
-    public String ReverseSentence(String str) {
+    public static String ReverseSentence(String str) {
         char[] chars = str.toCharArray();
         reverse(chars, 0, chars.length - 1);
         int blank = -1;
@@ -25,6 +25,7 @@ public class T58 {
                 blank = nextBlank;
             }
         }
+        //反转最后一个单词
         reverse(chars, blank + 1, chars.length - 1);
         return new String(chars);
     }
@@ -39,20 +40,34 @@ public class T58 {
         }
     }
 
+    /**
+     * 左旋转字符串
+     * <p>
+     * 题目描述
+     * 汇编语言中有一种移位指令叫做循环左移（ROL），现在有个简单的任务，
+     * 就是用字符串模拟这个指令的运算结果。对于一个给定的字符序列S，
+     * 请你把其循环左移K位后的序列输出。例如，字符序列S=”abcXYZdef”,
+     * 要求输出循环左移3位后的结果，即“XYZdefabc”。是不是很简单？OK，搞定它！
+     *
+     * @param str
+     * @param n
+     * @return
+     */
     public static String LeftRotateString(String str, int n) {
         if (str != null && n < str.length() && n > 0) {
             char[] chars = str.toCharArray();
-            reverse(chars, 0, n - 1);
-            reverse(chars, n, chars.length - 1);
-            reverse(chars, 0, chars.length - 1);
+            reverse(chars, 0, n - 1);//abcXYZdef->cbaXYZdef
+            reverse(chars, n, chars.length - 1);//cbaXYZdef->cbafedZYX
+            reverse(chars, 0, chars.length - 1);//cbafedZYX->XYZdefabc
             return new String(chars);
         }
         return new String();
     }
 
     public static void main(String[] args) {
-        String s = ",6";
-        s = LeftRotateString(s, 2);
+        String s = "abcXYZdef";
+        s = LeftRotateString(s, 3);
+       // System.out.println(ReverseSentence(s));
         System.out.println(s);
     }
 }

@@ -36,14 +36,16 @@ public class T51 {
         int[] temp = new int[R - L + 1];
         int p1 = L;
         int p2 = mid + 1;
-        int index = 0;//temp数组的索引
+        //temp数组的索引
+        int index = 0;
         // 比较左右两部分的元素，哪个小，把那个元素填入temp中
         for (; p1 <= mid && p2 <= R; index++) {
             if (arr[p1] < arr[p2]) {
                 temp[index] = arr[p1++];
             } else {
                 temp[index] = arr[p2++];
-                count += mid - L + 1;// core code, calculate InversePairs............
+                // core code, calculate InversePairs............左数组p1到min的个数
+                count += mid - p1 + 1;
             }
         }
         // 上面的循环退出后，把剩余的元素依次填入到temp中

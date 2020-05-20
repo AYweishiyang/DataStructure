@@ -26,7 +26,8 @@ public class MergeSort {
         int[] temp = new int[R - L + 1];
         int p1 = L;
         int p2 = mid + 1;
-        int index = 0;//temp数组的索引
+        //temp数组的索引
+        int index = 0;
         // 比较左右两部分的元素，哪个小，把那个元素填入temp中
         for (; p1 <= mid && p2 <= R; index++) {
             temp[index] = arr[p1] < arr[p2] ? arr[p1++] : arr[p2++];

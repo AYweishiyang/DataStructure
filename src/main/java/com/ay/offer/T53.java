@@ -31,8 +31,9 @@ public class T53 {
             end = mid - 1;
         } else if (array[mid] < k) {//如果array[mid]小于k,向右边寻找
             start = mid + 1;
-        } else {//如果array[mid]==k, 如果array[mid-1]!= k或者mid已经是数组最前头，证明找到，否则向左寻找
-            if ((mid > 0 && array[mid - 1] != k) || mid == 0) {//注意mid是否越界
+        } else {
+            //如果array[mid]==k, 如果array[mid-1]!= k或者mid已经是数组最前头，证明找到，否则向左寻找
+            if ((mid > 0 && array[mid - 1] != k) || mid == 0) {//注意mid是否越界 mid == 0证明在第0位，无需左移，直接return min
                 return mid;
             } else {
                 end = mid - 1;
