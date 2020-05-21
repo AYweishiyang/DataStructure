@@ -11,16 +11,20 @@ public class T61 {
             return false;
         }
         int[] d = new int[14];
-        d[0] = -5;
+        //统计大小王的个数
+        //d[0] = 0;
         int len = numbers.length;
         int max = -1;
         int min = 14;
         for (int i = 0; i < len; i++) {
-            d[numbers[i]]++; //记录每张牌出现次数，索引位置为牌的大小
-            if (numbers[i] == 0) {//min ,max 都不记0
+            //记录每张牌出现次数，索引位置为牌的大小
+            d[numbers[i]]++;
+            //min ,max 都不记0 (大小王的值会影响max min，所以continue)
+            if (numbers[i] == 0) {
                 continue;
             }
-            if (d[numbers[i]] > 1) {//大于1证明出现对子
+            //大于1证明出现对子
+            if (d[numbers[i]] > 1) {
                 return false;
             }
             //找出numbers中的最大、最小值
@@ -32,6 +36,7 @@ public class T61 {
             }
 
         }
+        //d[0]代表大小王的个数，大于2就不合理
         if (max - min < 5 && d[0] <= 2) {
             return true;
         }

@@ -10,7 +10,7 @@ import java.util.Arrays;
  * 不能使用除法。
  * （注意：规定B[0] = A[1] * A[2] * ... * A[n-1]，B[n-1] = A[0] * A[1] * ... * A[n-2];）
  * <p>
- * 思路
+ * 思路 拆分成两部分：第一部分是A[i]前面的相乘，第二部分是A[i]后面的相乘
  * 解释下代码，设有数组大小为5。
  * 对于第一个for循环
  * 第一步：b[0] = 1;
@@ -52,7 +52,7 @@ public class T66 {
     }
 
     public static void main(String[] args) {
-        int[] A = new int[]{};
-        System.out.println(Arrays.toString(multiply(A)));
+        int[] a = new int[]{};
+        System.out.println(Arrays.toString(multiply(a)));
     }
 }

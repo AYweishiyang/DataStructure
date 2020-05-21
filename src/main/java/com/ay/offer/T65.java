@@ -9,9 +9,13 @@ package com.ay.offer;
  */
 public class T65 {
     public static int Add(int num1,int num2) {
+        //当不产生进位时就OK
         while(num2 != 0){
-            int temp = num1 ^ num2;//两数相加不进位
-            num2 = (num1 & num2)<<1;//计算进位
+            //利用异或进行两数相加不进位的操作
+            int temp = num1 ^ num2;
+            //计算进位
+            num2 = (num1 & num2)<<1;
+
             num1 = temp;
         }
         return num1;
