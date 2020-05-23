@@ -1,5 +1,9 @@
 package com.ay.offer;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * @author ay
  * @create 2020-04-19 10:25
@@ -62,5 +66,20 @@ public class T03 {
         int[] duplication = new int[1];
         System.out.println(duplicate1(numbers, numbers.length, duplication));
         System.out.println(duplication[0]);
+
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
