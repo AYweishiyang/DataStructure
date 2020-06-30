@@ -12,8 +12,8 @@ package com.ay.offer;
  */
 public class T04 {
     /**
-     * 1 2 8 9
-     * 2 4 9 12
+     * 1 2 8  9
+     * 2 4 9  12
      * 4 7 10 13
      * 6 8 11 15
      *
@@ -28,14 +28,10 @@ public class T04 {
         for (i = rowCount - 1, j = 0; i >= 0 && j < colCount; ) {
             if (array[i][j] == target) {
                 return true;
-            }
-            if (array[i][j] < target) {
+            }else if (array[i][j] < target) {
                 j++;
-                continue;//结束本次循环
-            }
-            if (array[i][j] > target) {
+            } else {
                 i--;
-                continue;
             }
         }
         return false;
