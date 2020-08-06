@@ -1,5 +1,7 @@
 package com.ay.leetcode.arrayandstring;
 
+import java.util.ArrayList;
+
 /**
  * 35. 搜索插入位置
  * 给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。
@@ -24,5 +26,18 @@ public class L35 {
             }
         }
         return left;
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        ArrayList<OOMObject> list = new ArrayList<>();
+        for (int i = 0; i < 3000; i++) {
+            list.add(new OOMObject());
+            Thread.sleep(50);
+        }
+
+    }
+    static class OOMObject{
+        public byte[] p = new byte[32*1024];
+
     }
 }
