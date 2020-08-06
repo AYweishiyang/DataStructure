@@ -19,6 +19,7 @@ package com.ay.offer;
 public class T37 {
     int index = -1;
     //前序遍历
+
     String Serialize(TreeNode root) {
         StringBuilder sb = new StringBuilder();
         if(root == null){
@@ -32,18 +33,28 @@ public class T37 {
     }
     //使用index来设置树节点的val值，递归遍历左节点和右节点，如果值是#则表示是空节点，直接返回
     TreeNode Deserialize(String str) {
-        index ++;
-//        int len = str.length();
-//        if (index > len) {//因为数组的最后字符是'#',当strr[index]=='#',直接return null了，所以不用考虑边界
-//            return null;
+//        index ++;
+////        int len = str.length();
+////        if (index > len) {//因为数组的最后字符是'#',当strr[index]=='#',直接return null了，所以不用考虑边界
+////            return null;
+////        }
+//        String[] strr = str.split("!");
+//        TreeNode node = null;
+//        if(!strr[index].equals("#")){
+//            node = new TreeNode(Integer.parseInt(strr[index]));
+//            node.left = Deserialize(str);
+//            node.right = Deserialize(str);
 //        }
+//        return node;
+//
+        index ++;
         String[] strr = str.split("!");
-        TreeNode node = null;
-        if(!strr[index].equals("#")){
-            node = new TreeNode(Integer.parseInt(strr[index]));
-            node.left = Deserialize(str);
-            node.right = Deserialize(str);
+        if(strr[index].equals("#")){
+            return null;
         }
+        TreeNode node = new TreeNode(Integer.parseInt(strr[index]));
+        node.left = Deserialize(str);
+        node.right = Deserialize(str);
         return node;
     }
 
@@ -68,5 +79,7 @@ public class T37 {
         String str = serializeTree.Serialize(treeNode1);
         System.out.println(str);
         TreeNode treeNode = serializeTree.Deserialize(str);
+        String str1 = serializeTree.Serialize(treeNode);
+        System.out.println(str1); 
     }
 }
