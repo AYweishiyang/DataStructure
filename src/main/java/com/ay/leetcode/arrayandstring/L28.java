@@ -1,9 +1,15 @@
 package com.ay.leetcode.arrayandstring;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 实现 strStr()
@@ -42,13 +48,43 @@ public class L28 {
     }
 
     public static void main(String[] args) {
-        String [] s= new String[]{
-                "dog", "lazy", "a", "over", "jumps", "fox", "brown", "quick", "A"
-        };
-        List<String> list = Arrays.asList(s);
-        Collections.reverse(list);
-        //没有指定类型的话会报错
-        s = list.toArray(new String[0]);
-        System.out.println(Arrays.toString(s));
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(5,
+                5,
+                100,
+                TimeUnit.SECONDS,
+                new LinkedBlockingQueue<Runnable>(){
+
+                },
+                r -> {
+                    Thread thread = new Thread(r);
+                    thread.setDaemon(true);
+                    return thread;
+                },
+                new ThreadPoolExecutor.CallerRunsPolicy());
+
+        for (int i = 0; i < 100; i++) {
+            executor.submit(new Runnable() {
+                @Override
+                public void run() {
+                    System.out.println("aa");
+                }
+            });
+        }
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        executor.shutdown();
+
+
+//        String [] s= new String[]{
+//                "dog", "lazy", "a", "over", "jumps", "fox", "brown", "quick", "A"
+//        };
+//        List<String> list = Arrays.asList(s);
+//        Collections.reverse(list);
+//        //没有指定类型的话会报错
+//        s = list.toArray(new String[0]);
+//        System.out.println(Arrays.toString(s));
     }
 }
