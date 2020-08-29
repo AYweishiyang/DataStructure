@@ -1,5 +1,8 @@
-package chapter_5_stringproblem;
+package com.ay.chapter_5_stringproblem;
 
+/**
+ * 字符串的统计字符串
+ */
 public class Problem_07_ConvertStringToCount {
 
 	public static String getCountString(String str) {
@@ -24,6 +27,12 @@ public class Problem_07_ConvertStringToCount {
 		return s1 + "_" + s2 + (s3.equals("") ? s3 : "_" + s3);
 	}
 
+	/**
+	 * 补充问题
+	 * @param cstr
+	 * @param index
+	 * @return
+	 */
 	public static char getCharAt(String cstr, int index) {
 		if (cstr == null || cstr.equals("")) {
 			return 0;

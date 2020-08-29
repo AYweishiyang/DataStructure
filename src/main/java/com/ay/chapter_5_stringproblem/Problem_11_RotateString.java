@@ -1,4 +1,4 @@
-package chapter_5_stringproblem;
+package com.ay.chapter_5_stringproblem;
 
 public class Problem_11_RotateString {
 
@@ -11,8 +11,14 @@ public class Problem_11_RotateString {
 		int r = -1;
 		for (int i = 0; i < chas.length; i++) {
 			if (chas[i] != ' ') {
-				l = i == 0 || chas[i - 1] == ' ' ? i : l;
-				r = i == chas.length - 1 || chas[i + 1] == ' ' ? i : r;
+//				l = i == 0 || chas[i - 1] == ' ' ? i : l;
+//				r = i == chas.length - 1 || chas[i + 1] == ' ' ? i : r;
+				if(i == 0 || chas[i-1]==' '){
+					l = i;
+				}
+				if(i == chas.length-1 || chas[i+1]==' '){
+					r = i;
+				}
 			}
 			if (l != -1 && r != -1) {
 				reverse(chas, l, r);

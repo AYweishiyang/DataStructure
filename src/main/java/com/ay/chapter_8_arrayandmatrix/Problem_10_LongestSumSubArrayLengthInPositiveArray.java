@@ -1,4 +1,4 @@
-package chapter_8_arrayandmatrix;
+package com.ay.chapter_8_arrayandmatrix;
 
 public class Problem_10_LongestSumSubArrayLengthInPositiveArray {
 
@@ -13,7 +13,8 @@ public class Problem_10_LongestSumSubArrayLengthInPositiveArray {
 		while (right < arr.length) {
 			if (sum == k) {
 				len = Math.max(len, right - left + 1);
-				sum -= arr[left++];
+				sum -= arr[left];
+				left++;
 			} else if (sum < k) {
 				right++;
 				if (right == arr.length) {
@@ -21,7 +22,8 @@ public class Problem_10_LongestSumSubArrayLengthInPositiveArray {
 				}
 				sum += arr[right];
 			} else {
-				sum -= arr[left++];
+				sum -= arr[left];
+				left++;
 			}
 		}
 		return len;

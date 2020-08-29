@@ -1,5 +1,8 @@
-package chapter_9_others;
+package com.ay.chapter_9_others;
 
+/**
+ * 蓄水池算法 重要算法之一 https://www.jianshu.com/p/7a9ea6ece2af
+ */
 public class Problem_07_ReservoirSampling {
 
 	// 一个简单的随机函数，决定一个事情做还是不做

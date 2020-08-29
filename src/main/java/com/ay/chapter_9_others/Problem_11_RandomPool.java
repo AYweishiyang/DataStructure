@@ -1,4 +1,4 @@
-package chapter_9_others;
+package com.ay.chapter_9_others;
 
 import java.util.HashMap;
 
@@ -18,7 +18,8 @@ public class Problem_11_RandomPool {
 		public void insert(K key) {
 			if (!this.keyIndexMap.containsKey(key)) {
 				this.keyIndexMap.put(key, this.size);
-				this.indexKeyMap.put(this.size++, key);
+				this.indexKeyMap.put(this.size, key);
+				this.size++;
 			}
 		}
 

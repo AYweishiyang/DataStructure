@@ -1,4 +1,4 @@
-package chapter_8_arrayandmatrix;
+package com.ay.chapter_8_arrayandmatrix;
 
 public class Problem_13_SmallSum {
 

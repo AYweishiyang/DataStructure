@@ -1,4 +1,4 @@
-package chapter_5_stringproblem;
+package com.ay.chapter_5_stringproblem;
 
 public class Problem_23_TrieTree {
 

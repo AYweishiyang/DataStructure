@@ -1,4 +1,4 @@
-package chapter_8_arrayandmatrix;
+package com.ay.chapter_8_arrayandmatrix;
 
 public class Problem_16_SubArrayMaxSum {
 
@@ -11,7 +11,9 @@ public class Problem_16_SubArrayMaxSum {
 		for (int i = 0; i != arr.length; i++) {
 			cur += arr[i];
 			max = Math.max(max, cur);
-			cur = cur < 0 ? 0 : cur;
+			if(cur<0){
+				cur = 0;
+			}
 		}
 		return max;
 	}
