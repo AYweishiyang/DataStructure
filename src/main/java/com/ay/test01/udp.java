@@ -24,11 +24,25 @@ public class udp {
     }
 
     public static void main(String[] args) {
-        System.out.println("begin");
-        try {
-            receiver();
-        } catch (IOException e) {
-            e.printStackTrace();
+        int i = 0;
+        int res = 1;
+        while(true) {
+            try {
+                res += res / (i++);
+                System.out.println("No exception");
+            } catch(Exception e) {
+                System.out.println("Zero exception");
+            } finally {
+                System.out.print("In finally clause");
+                System.out.println(i);
+                if (i == 2) break;
+            }
         }
+//        System.out.println("begin");
+//        try {
+//            receiver();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 }
