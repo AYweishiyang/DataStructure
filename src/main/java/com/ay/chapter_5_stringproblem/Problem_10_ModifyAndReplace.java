@@ -1,5 +1,8 @@
-package chapter_5_stringproblem;
+package com.ay.chapter_5_stringproblem;
 
+/**
+ * 字符串的调整和替换
+ */
 public class Problem_10_ModifyAndReplace {
 
 	public static void replace(char[] chas) {
@@ -35,7 +38,7 @@ public class Problem_10_ModifyAndReplace {
 				chas[j--] = chas[i];
 			}
 		}
-		for (; j > -1;) {
+		while (j > -1) {
 			chas[j--] = '*';
 		}
 	}

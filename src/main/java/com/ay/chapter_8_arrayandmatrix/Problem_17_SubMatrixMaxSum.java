@@ -1,4 +1,4 @@
-package chapter_8_arrayandmatrix;
+package com.ay.chapter_8_arrayandmatrix;
 
 public class Problem_17_SubMatrixMaxSum {
 
@@ -17,7 +17,9 @@ public class Problem_17_SubMatrixMaxSum {
 					s[k] += m[j][k];
 					cur += s[k];
 					max = Math.max(max, cur);
-					cur = cur < 0 ? 0 : cur;
+					if(cur < 0){
+						cur = 0;
+					}
 				}
 			}
 		}

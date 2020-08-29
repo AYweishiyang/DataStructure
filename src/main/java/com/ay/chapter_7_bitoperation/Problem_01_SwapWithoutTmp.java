@@ -1,4 +1,4 @@
-package chapter_7_bitoperation;
+package com.ay.chapter_7_bitoperation;
 
 public class Problem_01_SwapWithoutTmp {
 

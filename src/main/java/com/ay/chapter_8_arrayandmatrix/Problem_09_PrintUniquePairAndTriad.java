@@ -1,4 +1,4 @@
-package chapter_8_arrayandmatrix;
+package com.ay.chapter_8_arrayandmatrix;
 
 public class Problem_09_PrintUniquePairAndTriad {
 
@@ -60,6 +60,7 @@ public class Problem_09_PrintUniquePairAndTriad {
 	public static void main(String[] args) {
 		int sum = 10;
 		int[] arr1 = { -8, -4, -3, 0, 1, 2, 4, 5, 8, 9 };
+
 		printArray(arr1);
 		System.out.println("====");
 		printUniquePair(arr1, sum);

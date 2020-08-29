@@ -1,10 +1,13 @@
-package chapter_8_arrayandmatrix;
+package com.ay.chapter_8_arrayandmatrix;
 
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map.Entry;
 
+/**
+ * 打印出现次数大于N/K的数
+ */
 public class Problem_06_FindKMajority {
 
 	public static void printHalfMajor(int[] arr) {

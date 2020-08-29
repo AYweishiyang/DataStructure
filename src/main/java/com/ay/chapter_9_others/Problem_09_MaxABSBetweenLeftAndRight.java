@@ -1,4 +1,4 @@
-package chapter_9_others;
+package com.ay.chapter_9_others;
 
 public class Problem_09_MaxABSBetweenLeftAndRight {
 

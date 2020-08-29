@@ -1,4 +1,4 @@
-package chapter_5_stringproblem;
+package com.ay.chapter_5_stringproblem;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -16,8 +16,14 @@ public class Problem_17_LowestLexicography {
 		if (strs == null || strs.length == 0) {
 			return "";
 		}
-		// 根据新的比较方式排序
-		Arrays.sort(strs, new MyComparator());
+//		Arrays.sort(strs, new MyComparator());
+//		Arrays.sort(strs, new Comparator<String>() {
+//			@Override
+//			public int compare(String o1, String o2) {
+//				return (o1 + o2).compareTo(o2 + o1);
+//			}
+//		});
+		Arrays.sort(strs, (a,b) -> (a + b).compareTo(b + a));
 		String res = "";
 		for (int i = 0; i < strs.length; i++) {
 			res += strs[i];

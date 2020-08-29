@@ -1,4 +1,4 @@
-package chapter_8_arrayandmatrix;
+package com.ay.chapter_8_arrayandmatrix;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -22,6 +22,7 @@ public class Problem_08_LongestIntegratedLength {
 
 	public static boolean isIntegrated(int[] arr, int left, int right) {
 		int[] newArr = Arrays.copyOfRange(arr, left, right + 1); // O(N)
+
 		Arrays.sort(newArr); // O(N*logN)
 		for (int i = 1; i < newArr.length; i++) {
 			if (newArr[i - 1] != newArr[i] - 1) {
@@ -38,7 +39,7 @@ public class Problem_08_LongestIntegratedLength {
 		int len = 0;
 		int max = 0;
 		int min = 0;
-		HashSet<Integer> set = new HashSet<Integer>(); // ≈–∂œ÷ÿ∏¥
+		HashSet<Integer> set = new HashSet<>(); // ≈–∂œ÷ÿ∏¥
 		for (int i = 0; i < arr.length; i++) {
 			max = Integer.MIN_VALUE;
 			min = Integer.MAX_VALUE;

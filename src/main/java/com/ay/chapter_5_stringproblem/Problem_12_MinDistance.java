@@ -1,4 +1,4 @@
-package chapter_5_stringproblem;
+package com.ay.chapter_5_stringproblem;
 
 import java.util.HashMap;
 import java.util.Map.Entry;

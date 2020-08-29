@@ -3,6 +3,11 @@
   <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/ay/chapter_8_arrayandmatrix/Problem_01_PrintMatrixSpiralOrder.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/ay/chapter_8_arrayandmatrix/Problem_08_LongestIntegratedLength.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/ay/chapter_8_arrayandmatrix/Problem_17_SubMatrixMaxSum.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/ay/chapter_9_others/Problem_07_ReservoirSampling.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/ay/chapter_9_others/Problem_14_SmallestUnFormedSum.java" charset="GBK" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

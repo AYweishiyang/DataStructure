@@ -1,4 +1,4 @@
-package chapter_5_stringproblem;
+package com.ay.chapter_5_stringproblem;
 
 import java.util.LinkedList;
 
@@ -13,6 +13,7 @@ public class Problem_15_ExpressionCompute {
 		int pre = 0;
 		int[] bra = null;
 		while (i < str.length && str[i] != ')') {
+			//字符串转数字
 			if (str[i] >= '0' && str[i] <= '9') {
 				pre = pre * 10 + str[i++] - '0';
 			} else if (str[i] != '(') {
@@ -63,7 +64,8 @@ public class Problem_15_ExpressionCompute {
 	}
 
 	public static void main(String[] args) {
-		String exp = "48*((70-65)-43)+8*1";
+//		String exp = "48*((70-65)-43)+8*1";
+		String exp = "1+(2*3)";
 		System.out.println(getValue(exp));
 
 		exp = "4*(6+78)+53-9/2+45*8";
