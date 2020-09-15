@@ -1,5 +1,6 @@
 package com.ay.chapter_1_stackandqueue;
 
+import java.util.Arrays;
 import java.util.Stack;
 
 /**
@@ -31,9 +32,9 @@ public class Problem_11_MonotonousStack {
 
     public static void main(String[] args) {
         int[] arr = new int[]{3,4,1,5,6,2,7};
-        int res[][] = new int[arr.length][2];
+        int[][] res;
         res = getNearLessNoRepeat(arr);
-        System.out.println(res);
+        System.out.println(Arrays.deepToString(res));
 
     }
 }

@@ -40,10 +40,7 @@ public class Problem_10_AllLessNumSubArray {
 			if (qmax.peekFirst() == i) {
 				qmax.pollFirst();
 			}
-
 			res += j - i;
-
-
 			i++;
 		}
 		return res;

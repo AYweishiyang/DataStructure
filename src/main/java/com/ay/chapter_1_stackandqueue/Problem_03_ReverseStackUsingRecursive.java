@@ -35,7 +35,6 @@ public class Problem_03_ReverseStackUsingRecursive {
 		while (!test.isEmpty()) {
 			System.out.println(test.pop());
 		}
-
 	}
 
 }
