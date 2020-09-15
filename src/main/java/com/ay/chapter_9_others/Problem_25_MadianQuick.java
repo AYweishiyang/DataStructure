@@ -1,4 +1,4 @@
-package chapter_9_others;
+package com.ay.chapter_9_others;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -63,7 +63,7 @@ public class Problem_25_MadianQuick {
 
 	}
 
-	//生成大根堆的比较器
+	//?????????????
 	public static class MaxHeapComparator implements Comparator<Integer> {
 		@Override
 		public int compare(Integer o1, Integer o2) {
@@ -75,7 +75,7 @@ public class Problem_25_MadianQuick {
 		}
 	}
 
-	//生成小根堆的比较器
+	//????С?????????
 	public static class MinHeapComparator implements Comparator<Integer> {
 		@Override
 		public int compare(Integer o1, Integer o2) {

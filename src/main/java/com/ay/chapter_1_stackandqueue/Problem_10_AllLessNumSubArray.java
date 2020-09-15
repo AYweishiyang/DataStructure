@@ -23,6 +23,7 @@ public class Problem_10_AllLessNumSubArray {
 					qmin.pollLast();
 				}
 				qmin.addLast(j);
+
 				while (!qmax.isEmpty() && arr[qmax.peekLast()] <= arr[j]) {
 					qmax.pollLast();
 				}
