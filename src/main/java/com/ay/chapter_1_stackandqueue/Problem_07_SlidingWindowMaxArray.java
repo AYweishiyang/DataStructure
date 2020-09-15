@@ -12,27 +12,28 @@ public class Problem_07_SlidingWindowMaxArray {
 
     }
 
-    public static int[] getMaxWindow(int[] arr, int w) {
-        if (arr == null || w > arr.length || w < 1) {
+    public static int[] getMaxWindow(int[] nums, int k) {
+        if (nums == null || k > nums.length || k < 1) {
             return null;
         }
         LinkedList<Integer> queue = new LinkedList<>();
         int index = 0;
-        int[] ret = new int[arr.length - w + 1];
-        for (int i = 0; i < arr.length; i++) {
+        int[] ret = new int[nums.length - k + 1];
+        for (int i = 0; i < nums.length; i++) {
             //后面>=比我的，我的队尾就先弹出
-            while (!queue.isEmpty() && arr[queue.peekLast()] <= arr[i]) {
+            while (!queue.isEmpty() && nums[queue.peekLast()] <= nums[i]) {
                 queue.pollLast();
             }
             queue.addLast(i);
             //判断队列头是否过了窗口
-            if(queue.peekFirst() == i - w){
+            if(queue.peekFirst() == i - k){
                 queue.pollFirst();
             }
-            if(i >= w -1){
-                ret[index ++ ] = arr[queue.peekFirst()];
+            if(i >= k -1){
+                ret[index ++ ] = nums[queue.peekFirst()];
             }
         }
         return ret;
     }
+
 }

@@ -40,10 +40,10 @@ public class QuickSort<T extends Comparable<T>> implements Sort<T>{
         while(true){
             while(less(arr[++i],pivot) && i != right){
 
-            };//防止越界
+            }//防止越界
             while(less(pivot,arr[--j]) && j != left){
 
-            };
+            }
             if(i>=j){
                 break;
             }
@@ -52,7 +52,6 @@ public class QuickSort<T extends Comparable<T>> implements Sort<T>{
         swap(arr, left,j);
         quickSort(arr,left,j-1);
         quickSort(arr,j+1,right);
-
     }
 
     /**

@@ -2,6 +2,9 @@ package com.ay.chapter_1_stackandqueue;
 
 import java.util.Stack;
 
+/**
+ * easy
+ */
 public class Problem_01_GetMinStack {
 	public static class MyStack1 {
 		private Stack<Integer> stackData;
