@@ -1,15 +1,17 @@
 package com.ay.interview;
 
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.Enumeration;
-import java.util.LinkedList;
+import java.util.*;
 
 /** 58笔试
  * @author ay
  * @create 2020-09-21 20:33
  */
 public class Main58 {
+    public static void main(String[] args) {
+        Main58 main58 = new Main58();
+        int calculate = main58.calculate("1+2+3+4+5+6");
+        System.out.println(calculate);
+    }
     public int calculate(String input) {
         // write code here
         String str = input.replace(" ", "");
@@ -25,7 +27,7 @@ public class Main58 {
                 first = first * 10 +cs[index++] -'0';
             }else if(cs[index] != '('){
                 addN(q,first);
-                q.addLast(String.valueOf(cs[index]));
+                q.addLast(String.valueOf(cs[index++]));
                 first = 0;
             }else {
                 temp = help(cs,index+1);
